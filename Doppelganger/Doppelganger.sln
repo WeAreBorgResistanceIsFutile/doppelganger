@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28721.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doppelganger.Files", "Doppelganger.Files\Doppelganger.Files.csproj", "{4325E1AC-8192-464D-92E0-14583861AAB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doppelganger.Files.Tests", "Doppelganger.Files.Tests\Doppelganger.Files.Tests.csproj", "{997D80B5-35BC-4777-9022-D74DC968D0D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4325E1AC-8192-464D-92E0-14583861AAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4325E1AC-8192-464D-92E0-14583861AAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4325E1AC-8192-464D-92E0-14583861AAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4325E1AC-8192-464D-92E0-14583861AAB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997D80B5-35BC-4777-9022-D74DC968D0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997D80B5-35BC-4777-9022-D74DC968D0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997D80B5-35BC-4777-9022-D74DC968D0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997D80B5-35BC-4777-9022-D74DC968D0D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DBCDAF0-A90B-4D2F-8CD8-6FB632E8B65A}
+	EndGlobalSection
+EndGlobal
