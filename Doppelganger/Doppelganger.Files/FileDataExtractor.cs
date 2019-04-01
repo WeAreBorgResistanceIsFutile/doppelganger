@@ -6,13 +6,22 @@ namespace Doppelganger.Files
 {
     public class FileDataExtractor
     {
+        private const int BYTE_COUNT_TO_GENERATE_HASH_FROM = 8 * 1024 * 1024;
+
         public FileData GetFileData(string fileName, string filePath, byte[] content)
         {
-            int hashCode = GetHashCode(content);
-            return new FileData(fileName: fileName, fullPath: Path.Combine(filePath, fileName), hashCode: hashCode);
+            if (string.IsNullOrWhiteSpace(fileName))
+                throw new ArgumentException("Argument should not be null and should contain a valid file name.", nameof(fileName));
+            if (string.IsNullOrWhiteSpace(filePath))
+                throw new ArgumentException("Argument should not be null and should contain a valid path.", nameof(fileName));
+            if (content is null)
+                throw new ArgumentNullException(nameof(content));
+
+            int hashCode = GetFileHash(content);
+            return new FileData(fileName: fileName, fullPath: Path.Combine(filePath, fileName), hashCode: hashCode, byteCount: content.Length);
         }
 
-        private static int GetHashCode<T>(T obj)
+        private static int GetFileHash(byte[] content)
         {
             unchecked
             {
@@ -20,29 +29,9 @@ namespace Doppelganger.Files
                 const int HashingMultiplier = 16777619;
 
                 int hash = HashingBase;
-
-                hash = (hash * HashingMultiplier) ^ (!(obj is null) ? obj.GetHashCode() : 0);
-                return hash;
-            }
-        }
-
-        private static int GetHashCode<T>(IEnumerable<T> obj)
-        {
-            unchecked
-            {
-                const int HashingBase = (int)2166136261;
-                const int HashingMultiplier = 16777619;
-
-                int hash = HashingBase;
-
-                var enumerator = obj?.GetEnumerator();
-
-                if(!(enumerator is null))
+                for (int i = 0; i < Math.Min(content.Length, BYTE_COUNT_TO_GENERATE_HASH_FROM); i++)
                 {
-                    while(enumerator.MoveNext())
-                    {
-                        hash = (hash * HashingMultiplier) ^ (!(enumerator.Current is null) ? enumerator.Current.GetHashCode() : 0);
-                    }
+                    hash = (hash * HashingMultiplier) ^ content[i].GetHashCode();
                 }
                 return hash;
             }
