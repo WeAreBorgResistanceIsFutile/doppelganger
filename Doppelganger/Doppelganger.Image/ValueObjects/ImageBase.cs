@@ -2,7 +2,7 @@
 
 namespace Doppelganger.Image.ValueObjects
 {
-    public class Image : FileSystemElement
+    public abstract class ImageBase : FileSystemElement
     {
         public enum ImageType
         {
@@ -12,16 +12,14 @@ namespace Doppelganger.Image.ValueObjects
 
         public int Hash{ get; }
         public int ByteCount { get; }
-        public ImageType Type { get; }
         
-        public Image(string fileName, int hashCode, int byteCount, ImageType imageType) :base(fileName)
+        public ImageBase(string fileName, int hashCode, int byteCount) :base(fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentNullException(nameof(fileName), "Should not be empthy or null");
 
             Hash = hashCode;
             ByteCount = byteCount;
-            Type = imageType;
         }
     }
 }

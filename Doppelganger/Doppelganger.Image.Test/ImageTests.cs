@@ -1,4 +1,5 @@
 ﻿using System;
+using Doppelganger.Image.ValueObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,15 +9,28 @@ namespace Doppelganger.Image.Test
     public class ImageTests
     {
         [TestMethod]
-        public void Create_Should_Work()
+        public void NEF_Create_Should_Work()
         {
-            new ValueObjects.Image("some file name", 0, 0, ValueObjects.Image.ImageType.Jpeg);
+            new NEF("some file name", 0, 0);
         }
 
         [TestMethod]
-        public void Create_With_Name_NULL_Should_Fail()
+        public void NEF_Create_With_Name_NULL_Should_Fail()
         {
-            Action action = () => new ValueObjects.Image(null, 0, 0, ValueObjects.Image.ImageType.Jpeg);
+            Action action = () => new NEF(null, 0, 0);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [TestMethod]
+        public void Jpeg_Create_Should_Work()
+        {
+            new Jpeg("some file name", 0, 0);
+        }
+
+        [TestMethod]
+        public void Jpeg_Create_With_Name_NULL_Should_Fail()
+        {
+            Action action = () => new Jpeg(null, 0, 0);
             action.Should().Throw<ArgumentNullException>();
         }
     }

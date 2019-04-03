@@ -7,7 +7,7 @@ namespace Doppelganger.Image
     {
         private const int BYTE_COUNT_TO_GENERATE_HASH_FROM = 8 * 1024 * 1024;
 
-        public ValueObjects.Image GetFileData(string fileName, string filePath, byte[] content)
+        public NEF GetFileData(string fileName, string filePath, byte[] content)
         {
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentException("Argument should not be null and should contain a valid file name.", nameof(fileName));
@@ -17,7 +17,7 @@ namespace Doppelganger.Image
                 throw new ArgumentNullException(nameof(content));
 
             int hashCode = GetFileHash(content);
-            return new ValueObjects.Image(fileName: fileName, hashCode: hashCode, byteCount: content.Length, imageType: ValueObjects.Image.ImageType.NEF);
+            return new NEF(fileName: fileName, hashCode: hashCode, byteCount: content.Length);
         }
 
         private static int GetFileHash(byte[] content)

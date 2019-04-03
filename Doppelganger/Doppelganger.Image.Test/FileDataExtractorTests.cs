@@ -43,7 +43,7 @@ namespace Doppelganger.Image.Test
                 for (int i = 0; i < howManyTimes; i++)
                 {
                     string fileName = "NIK_4062 - Copy.NEF";
-                    ValueObjects.Image fd = GetFileData(fileName);
+                    ValueObjects.ImageBase fd = GetFileData(fileName);
                     
                     fd.Name.Should().Be(fileName);
                     fd.Hash.Should().Be(766030301);
@@ -52,11 +52,11 @@ namespace Doppelganger.Image.Test
             }
         }
 
-        private ValueObjects.Image GetFileData(string fileName)
+        private ValueObjects.ImageBase GetFileData(string fileName)
         {                        
             byte[] content = System.IO.File.ReadAllBytes(Path.Combine(PATH, fileName));
 
-            ValueObjects.Image fd = fde.GetFileData(fileName, Path.Combine(PATH), content);
+            ValueObjects.ImageBase fd = fde.GetFileData(fileName, Path.Combine(PATH), content);
             return fd;
         }
 
