@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Doppelganger.Files.ValueObjects;
+using System;
 using System.IO;
 
 namespace Doppelganger.Files
@@ -8,7 +8,7 @@ namespace Doppelganger.Files
     {
         private const int BYTE_COUNT_TO_GENERATE_HASH_FROM = 8 * 1024 * 1024;
 
-        public FileData GetFileData(string fileName, string filePath, byte[] content)
+        public Image GetFileData(string fileName, string filePath, byte[] content)
         {
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentException("Argument should not be null and should contain a valid file name.", nameof(fileName));
@@ -18,7 +18,7 @@ namespace Doppelganger.Files
                 throw new ArgumentNullException(nameof(content));
 
             int hashCode = GetFileHash(content);
-            return new FileData(fileName: fileName, fullPath: Path.Combine(filePath, fileName), hashCode: hashCode, byteCount: content.Length);
+            return new Image(fileName: fileName, hashCode: hashCode, byteCount: content.Length, imageType: Image.ImageType.NEF);
         }
 
         private static int GetFileHash(byte[] content)

@@ -1,8 +1,8 @@
-﻿using System;
-using System.IO;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.IO;
 
 namespace Doppelganger.Files.Tests
 {
@@ -17,7 +17,7 @@ namespace Doppelganger.Files.Tests
         {
             fileManager = new FileManager(directoryPath: PATH);
         }
-        
+
         [TestMethod]
         public void Should_Not_Be_Created_NULL_directoryPath()
         {
@@ -28,7 +28,7 @@ namespace Doppelganger.Files.Tests
         [TestMethod]
         public void Should_Not_Be_Created_Directory_NotFound()
         {
-            Action action = ()=> new FileManager(directoryPath: "some fake path");
+            Action action = () => new FileManager(directoryPath: "some fake path");
             action.Should().Throw<DirectoryNotFoundException>();
         }
 

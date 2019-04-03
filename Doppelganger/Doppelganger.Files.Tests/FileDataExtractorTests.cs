@@ -1,8 +1,9 @@
-﻿using System;
-using System.IO;
+﻿using Doppelganger.Files.ValueObjects;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.IO;
 
 namespace Doppelganger.Files.Tests
 {
@@ -22,12 +23,11 @@ namespace Doppelganger.Files.Tests
         public void GetFileData_Should_Succeed()
         {
             string fileName = "NIK_4062.NEF";
-            FileData fd = GetFileData(fileName);
+            Image fd = GetFileData(fileName);
 
             using (new AssertionScope())
             {
                 fd.Name.Should().Be(fileName);
-                fd.FullPath.Should().Be(Path.Combine(PATH, fileName));
                 fd.Hash.Should().Be(766030301);
                 fd.ByteCount.Should().Be(30906305);
             }
@@ -43,21 +43,20 @@ namespace Doppelganger.Files.Tests
                 for (int i = 0; i < howManyTimes; i++)
                 {
                     string fileName = "NIK_4062 - Copy.NEF";
-                    FileData fd = GetFileData(fileName);
+                    Image fd = GetFileData(fileName);
                     
                     fd.Name.Should().Be(fileName);
-                    fd.FullPath.Should().Be(Path.Combine(PATH, fileName));
                     fd.Hash.Should().Be(766030301);
                     fd.ByteCount.Should().Be(30906305);
                 }
             }
         }
 
-        private FileData GetFileData(string fileName)
+        private Image GetFileData(string fileName)
         {                        
-            byte[] content = File.ReadAllBytes(Path.Combine(PATH, fileName));
+            byte[] content = System.IO.File.ReadAllBytes(Path.Combine(PATH, fileName));
 
-            FileData fd = fde.GetFileData(fileName, Path.Combine(PATH), content);
+            Image fd = fde.GetFileData(fileName, Path.Combine(PATH), content);
             return fd;
         }
 
@@ -87,7 +86,5 @@ namespace Doppelganger.Files.Tests
         {
             fde.GetFileData("some.file", Path.Combine(PATH), new byte[0]);            
         }
-
-        
     }
 }
