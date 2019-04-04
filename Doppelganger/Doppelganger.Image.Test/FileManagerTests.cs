@@ -40,7 +40,7 @@ namespace Doppelganger.Image.Test
             using (new AssertionScope())
             {
                 fileNames.Should().NotBeNull();
-                fileNames.Length.Should().Be(2);
+                fileNames.Length.Should().Be(3);
             }
         }
     }
