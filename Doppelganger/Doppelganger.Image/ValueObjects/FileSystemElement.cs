@@ -2,15 +2,24 @@
 
 namespace Doppelganger.Image.ValueObjects
 {
-    public class FileSystemElement
+    public abstract class FileSystemElement
     {
         protected FileSystemElement Parent { get; private set; }
-        public string Name { get; }
+        public string Name { get; private set; }
+
+        public FileSystemElement()
+        {
+            
+        }
         public FileSystemElement(string name)
         {
             Name = name;
         }
 
+        public void SetName(string name)
+        {
+            Name = name;
+        }
         protected internal void SetParent(FileSystemElement parent) => Parent = parent;
 
         public string GetPath()

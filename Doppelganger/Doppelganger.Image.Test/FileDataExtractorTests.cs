@@ -1,4 +1,5 @@
 ﻿using Doppelganger.Image;
+using Doppelganger.Image.ValueObjects;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -56,35 +57,35 @@ namespace Doppelganger.Image.Test
         {                        
             byte[] content = System.IO.File.ReadAllBytes(Path.Combine(PATH, fileName));
 
-            ValueObjects.ImageBase fd = fde.GetFileData(fileName, Path.Combine(PATH), content);
+            ValueObjects.ImageBase fd = fde.GetFileData<NEF>(fileName, Path.Combine(PATH), content);
             return fd;
         }
 
         [TestMethod]
         public void GetFileData_Should_Fail_null_filename()
         {
-            Action getFileData = () => fde.GetFileData(null, Path.Combine(PATH), new byte[0]);
+            Action getFileData = () => fde.GetFileData<NEF>(null, Path.Combine(PATH), new byte[0]);
             getFileData.Should().Throw<ArgumentException>();
         }
 
         [TestMethod]
         public void GetFileData_Should_Fail_null_filepath()
         {
-            Action getFileData = () => fde.GetFileData("some.file", null, new byte[0]);
+            Action getFileData = () => fde.GetFileData<NEF>("some.file", null, new byte[0]);
             getFileData.Should().Throw<ArgumentException>();
         }
 
         [TestMethod]
         public void GetFileData_Should_Fail_null_content()
         {
-            Action getFileData = ()=> fde.GetFileData("some.file", Path.Combine(PATH), null);
+            Action getFileData = ()=> fde.GetFileData<NEF>("some.file", Path.Combine(PATH), null);
             getFileData.Should().Throw<ArgumentNullException>();
         }
 
         [TestMethod]        
         public void GetFileData_Should_Not_Fail_invalid_filename_and_path()
         {
-            fde.GetFileData("some.file", Path.Combine(PATH), new byte[0]);            
+            fde.GetFileData<NEF>("some.file", Path.Combine(PATH), new byte[0]);            
         }
     }
 }

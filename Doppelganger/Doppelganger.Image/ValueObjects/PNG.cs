@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Doppelganger.Image.ValueObjects
 {
-    public class NEF : ImageBase
+    public class PNG : ImageBase
     {
-        public NEF()
+        public PNG()
         {
         }
 
-        public NEF(string fileName, int hashCode, int byteCount) : base(fileName, hashCode, byteCount)
+        public PNG(string fileName, int hashCode, int byteCount) : base(fileName, hashCode, byteCount)
         {
         }
     }

@@ -3,11 +3,15 @@ using Doppelganger.Image.ValueObjects;
 
 namespace Doppelganger.Image
 {
-    public class FileDataExtractor
+    public class FileDataExtractor : IFileDataExtractor 
     {
         private const int BYTE_COUNT_TO_GENERATE_HASH_FROM = 8 * 1024 * 1024;
 
-        public NEF GetFileData(string fileName, string filePath, byte[] content)
+        public FileDataExtractor()
+        {
+        }
+
+        public T GetFileData<T>(string fileName, string filePath, byte[] content) where T : ImageBase, new()
         {
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentException("Argument should not be null and should contain a valid file name.", nameof(fileName));
@@ -17,7 +21,18 @@ namespace Doppelganger.Image
                 throw new ArgumentNullException(nameof(content));
 
             int hashCode = GetFileHash(content);
-            return new NEF(fileName: fileName, hashCode: hashCode, byteCount: content.Length);
+
+            return CreateReturnValue<T>(fileName, content, hashCode);
+        }
+
+        private T CreateReturnValue<T>(string fileName, byte[] content, int hashCode) where T : ImageBase, new()
+        {
+            var retVar = new T();
+            retVar.SetHash(hashCode);
+            retVar.SetName(fileName);
+            retVar.SetByteCount(content.Length);
+
+            return retVar;
         }
 
         private static int GetFileHash(byte[] content)
@@ -34,6 +49,11 @@ namespace Doppelganger.Image
                 }
                 return hash;
             }
-        }
+        }        
+    }
+
+    public interface IFileDataExtractor
+    {
+        T GetFileData<T>(string fileName, string filePath, byte[] content) where T : ImageBase, new();
     }
 }

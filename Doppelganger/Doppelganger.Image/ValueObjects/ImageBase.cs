@@ -4,21 +4,28 @@ namespace Doppelganger.Image.ValueObjects
 {
     public abstract class ImageBase : FileSystemElement
     {
-        public enum ImageType
-        {
-            Jpeg,
-            NEF
-        }
+        public int Hash { get; private set; }
+        public int ByteCount { get; private set; }
 
-        public int Hash{ get; }
-        public int ByteCount { get; }
-        
-        public ImageBase(string fileName, int hashCode, int byteCount) :base(fileName)
+        public ImageBase() : base()
+        {
+
+        }
+        public ImageBase(string fileName, int hashCode, int byteCount) : base(fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentNullException(nameof(fileName), "Should not be empthy or null");
 
             Hash = hashCode;
+            ByteCount = byteCount;
+        }
+        public virtual void SetHash(int hash)
+        {
+            Hash = hash;
+        }
+
+        public virtual void SetByteCount(int byteCount)
+        {
             ByteCount = byteCount;
         }
     }

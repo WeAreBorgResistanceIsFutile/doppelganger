@@ -24,13 +24,13 @@ namespace Doppelganger.Image.Test
         [TestMethod]
         public void Jpeg_Create_Should_Work()
         {
-            new Jpeg("some file name", 0, 0);
+            new PNG("some file name", 0, 0);
         }
 
         [TestMethod]
         public void Jpeg_Create_With_Name_NULL_Should_Fail()
         {
-            Action action = () => new Jpeg(null, 0, 0);
+            Action action = () => new PNG(null, 0, 0);
             action.Should().Throw<ArgumentNullException>();
         }
     }

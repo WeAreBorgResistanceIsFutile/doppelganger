@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Doppelganger.Image.ValueObjects
@@ -32,12 +33,24 @@ namespace Doppelganger.Image.ValueObjects
             element.SetParent(null);
         }
 
-        
+        public void AddChild(List<FileSystemElement> list)
+        {
+            foreach (var fse in list)
+            {
+                AddChild(fse);
+            }
+        }
+
 
         private static void ElementNullCheck(FileSystemElement element)
         {
             if (element is null)
                 throw new ArgumentNullException(nameof(element), "should not be null");
+        }
+
+        internal IEnumerable<ImageLibrary> GetImageLibraries()
+        {
+            return ChildElements.OfType<ImageLibrary>().ToList();
         }
 
         private void ElementExistsCheck(FileSystemElement element)
