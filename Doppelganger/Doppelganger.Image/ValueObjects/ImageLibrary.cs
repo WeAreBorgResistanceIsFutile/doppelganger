@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Doppelganger.Image.Stores;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,56 +9,126 @@ namespace Doppelganger.Image.ValueObjects
 {
     public class ImageLibrary : FileSystemElement
     {
-        private readonly List<FileSystemElement> _childElements;
+        readonly ImageStore _imageStore;
+        readonly ImageLibraryStore _libraryStore;
 
-        public IReadOnlyList<FileSystemElement> ChildElements { get { return _childElements; } }
+        public int ImageLibraryCount => _libraryStore.Count;
+        public int ImageCount => _imageStore.Count;
 
-        public ImageLibrary(string name) : base(name)
+        public ImageLibrary(string path) : base(Path.GetFileName(path))
         {
-            _childElements = new List<FileSystemElement>();
+            _imageStore = new ImageStore();
+            _libraryStore = new ImageLibraryStore();
         }
 
-        public void AddChild(FileSystemElement element)
+        public ImageBase this[int index] => _imageStore[index];
+
+        public virtual void Add(FileSystemElement element)
         {
             ElementNullCheck(element);
 
-            _childElements.Add(element);
+            dynamic e = element;
+            Add(e);
+
             element.SetParent(this);
         }
 
-        public void RemoveChild(FileSystemElement element)
-        {
-            ElementNullCheck(element);
-            ElementExistsCheck(element);
-
-            _childElements.Remove(element);
-            element.SetParent(null);
-        }
-
-        public void AddChild(List<FileSystemElement> list)
+        public void Add(List<FileSystemElement> list)
         {
             foreach (var fse in list)
             {
-                AddChild(fse);
+                Add(fse);
             }
         }
 
+        public void Remove(FileSystemElement element)
+        {
+            ElementNullCheck(element);
+            dynamic e = element;
+            Remove(e);
+            element.SetParent(null);
+        }
+
+        public ImageLibrary GetImageLibrary(string name)
+        {
+            return _libraryStore.GetImageLibrary(name);
+        }
+
+        public int ImagesOfTypeCount<T>() where T : ImageBase
+        {
+            return _imageStore.ImagesOfTypeCount<T>().Count();
+        }
+
+        public ImageLibrary GetImageLibraryAt(int index)
+        {
+            return _libraryStore[index];
+        }
 
         private static void ElementNullCheck(FileSystemElement element)
         {
             if (element is null)
                 throw new ArgumentNullException(nameof(element), "should not be null");
+        }        
+        private void Add(ImageLibrary element)
+        {
+            _libraryStore.Add(element);
+
+        }
+        private void Add(ImageBase element)
+        {
+            _imageStore.Add(element);
+        }
+        private void Remove(ImageLibrary element)
+        {
+            _libraryStore.Remove(element);
+        }
+        private void Remove(ImageBase element)
+        {
+            _imageStore.Remove(element);
         }
 
-        internal IEnumerable<ImageLibrary> GetImageLibraries()
+        public override bool Equals(object obj)
         {
-            return ChildElements.OfType<ImageLibrary>().ToList();
+            bool equals = false;
+            if (obj is ImageLibrary imageLibrary && !(imageLibrary is null))
+            {
+                equals = (imageLibrary.Name?.Equals(this.Name) ?? false)
+                            && imageLibrary.ImageLibraryCount.Equals(this.ImageLibraryCount)
+                            && imageLibrary.GetPath().Equals(this.GetPath());
+                if(equals)
+                    for(int i = 0; i < this.ImageLibraryCount; i++)
+                    {
+                        equals = equals && GetImageLibraryAt(i).Equals(imageLibrary.GetImageLibraryAt(i));
+                    }
+                if (equals)
+                    for (int i = 0; i < this.ImageCount; i++)
+                    {
+                        equals = equals && this[i].Equals(imageLibrary[i]);
+                    }
+            }
+            return equals;
         }
 
-        private void ElementExistsCheck(FileSystemElement element)
+        public override int GetHashCode()
         {
-            if (!_childElements.Contains(element))
-                throw new ArgumentException($"{nameof(element)}: {element} is not a member of {nameof(ImageLibrary)}'s child elements.");
+            unchecked
+            {
+                // Choose large primes to avoid hashing collisions
+                const int HashingBase = (int)2166136261;
+                const int HashingMultiplier = 16777619;
+
+                int hash = HashingBase;
+
+                hash = (hash * HashingMultiplier) ^ Name.GetHashCode();
+                
+
+                return hash;
+            }
+        }
+
+        public override string ToString()
+        {
+            return GetPath();
         }
     }
 }

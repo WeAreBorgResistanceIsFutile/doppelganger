@@ -9,9 +9,10 @@ namespace Doppelganger.Image
 {
     public class ImageStructureBuilder
     {
-        private readonly string _sourcePath;
+        readonly string _sourcePath;
+        readonly IFileDataExtractor _FileDataExtractor;
 
-        public ImageStructureBuilder(string sourcePath)
+        public ImageStructureBuilder(string sourcePath, IFileDataExtractor fileDataExtractor)
         {
             if (string.IsNullOrWhiteSpace(sourcePath))
                 throw new ArgumentException("Argument should not be null and should contain a valid path.", nameof(sourcePath));
@@ -19,29 +20,34 @@ namespace Doppelganger.Image
             if (!Directory.Exists(sourcePath))
                 throw new DirectoryNotFoundException($"Argument {nameof(sourcePath)} should contain a valid path.");
 
+            if (fileDataExtractor is null)
+                throw new ArgumentNullException(nameof(FileDataExtractor), "Should not be null, we'll need it later");
+
             this._sourcePath = sourcePath;
+            this._FileDataExtractor = fileDataExtractor;
         }
 
-        public ImageLibrary BuildStructure()
+        public RootImageLibrary BuildStructure()
         {
             DirectoryInfo di = new DirectoryInfo(_sourcePath);
 
-            var retVar = new ImageLibrary(di.FullName);
+            var retVar = new RootImageLibrary(di.FullName);
             SetupImageLibrary(retVar);
             return retVar;
         }
 
-        private void SetupImageLibrary(ImageLibrary imagLibrary)
+        private void SetupImageLibrary(ImageLibrary imageLibrary)
         {
-            var di = new DirectoryInfo(imagLibrary.Name);
-            imagLibrary.AddChild(GetDirectories(di));
-            imagLibrary.AddChild(GetNEFs(di));
-            imagLibrary.AddChild(GetPNGs(di));
+            var di = new DirectoryInfo(imageLibrary.GetPath());
+            imageLibrary.Add(GetDirectories(di));
+            imageLibrary.Add(GetNEFs(di));
+            imageLibrary.Add(GetPNGs(di));
 
-            foreach(var il in imagLibrary.GetImageLibraries())
+
+            for (int i = 0; i < imageLibrary.ImageLibraryCount; i++)
             {
-                SetupImageLibrary(il);
-            }
+                SetupImageLibrary(imageLibrary.GetImageLibraryAt(i));
+            }            
         }
 
         private List<FileSystemElement> GetDirectories(DirectoryInfo di)
@@ -66,14 +72,12 @@ namespace Doppelganger.Image
             return GetImageObject<NEF>(di, ".nef");
         }
 
-        private List<FileSystemElement> GetImageObject<T>(DirectoryInfo di, string extention) where T : ImageBase, new()
+        private List<FileSystemElement> GetImageObject<T>(DirectoryInfo di, string extention) where T : ImageBase
         {
-            IFileDataExtractor fde = new FileDataExtractor();
-
             var retVar = new List<FileSystemElement>();
             retVar = di.GetFiles().Where(p => p.Extension.ToLowerInvariant().Equals(extention)).Select(p =>
             {
-                T fd = fde.GetFileData<T>(p.Name, p.FullName, File.ReadAllBytes(p.FullName));
+                T fd = _FileDataExtractor.GetFileData<T>(p.Name, p.FullName, File.ReadAllBytes(p.FullName));
                 return fd;
             }).ToList<FileSystemElement>();
 

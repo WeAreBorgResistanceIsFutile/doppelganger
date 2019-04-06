@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 
 namespace Doppelganger.Image.ValueObjects
 {
@@ -20,7 +21,7 @@ namespace Doppelganger.Image.ValueObjects
         {
             Name = name;
         }
-        protected internal void SetParent(FileSystemElement parent) => Parent = parent;
+        protected internal virtual void SetParent(FileSystemElement parent) => Parent = parent;
 
         public string GetPath()
         {
@@ -28,7 +29,7 @@ namespace Doppelganger.Image.ValueObjects
             return GetPath("");
         }
 
-        private string GetPath(string path)
+        protected virtual string GetPath(string path)
         {
             if (Parent is FileSystemElement p)
                 path += $@"{p.GetPath(path)}\";

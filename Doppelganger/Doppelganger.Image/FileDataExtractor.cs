@@ -6,33 +6,27 @@ namespace Doppelganger.Image
     public class FileDataExtractor : IFileDataExtractor 
     {
         private const int BYTE_COUNT_TO_GENERATE_HASH_FROM = 8 * 1024 * 1024;
-
-        public FileDataExtractor()
+        readonly ImageFactory _ImageFactory;
+        public FileDataExtractor(ImageFactory imageFactory)
         {
+            if (imageFactory is null)
+                throw new ArgumentNullException(nameof(imageFactory), $"{nameof(imageFactory)} should not be null. We'll need it later to create ImageBase instances.");
+
+            _ImageFactory = imageFactory;
         }
 
-        public T GetFileData<T>(string fileName, string filePath, byte[] content) where T : ImageBase, new()
+        public T GetFileData<T>(string fileName, string filePath, byte[] content) where T : ImageBase
         {
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentException("Argument should not be null and should contain a valid file name.", nameof(fileName));
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException("Argument should not be null and should contain a valid path.", nameof(fileName));
             if (content is null)
-                throw new ArgumentNullException(nameof(content));
+                throw new ArgumentNullException(nameof(content));            
 
-            int hashCode = GetFileHash(content);
+            int hash = GetFileHash(content);
 
-            return CreateReturnValue<T>(fileName, content, hashCode);
-        }
-
-        private T CreateReturnValue<T>(string fileName, byte[] content, int hashCode) where T : ImageBase, new()
-        {
-            var retVar = new T();
-            retVar.SetHash(hashCode);
-            retVar.SetName(fileName);
-            retVar.SetByteCount(content.Length);
-
-            return retVar;
+            return _ImageFactory.Create<T>(fileName,  hash, content.Length);      
         }
 
         private static int GetFileHash(byte[] content)
@@ -54,6 +48,6 @@ namespace Doppelganger.Image
 
     public interface IFileDataExtractor
     {
-        T GetFileData<T>(string fileName, string filePath, byte[] content) where T : ImageBase, new();
+        T GetFileData<T>(string fileName, string filePath, byte[] content) where T : ImageBase;
     }
 }

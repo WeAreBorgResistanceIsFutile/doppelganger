@@ -13,24 +13,33 @@ namespace Doppelganger.Image.Test
     {
         const string PATH = @".\Resources";
         Image.ImageStructureBuilder imageStructureBuilder;
+        IFileDataExtractor _FileDataExtractor;
 
         [TestInitialize]
         public void TestInit()
         {
-            imageStructureBuilder = new Image.ImageStructureBuilder(sourcePath: PATH);
+            _FileDataExtractor = new FileDataExtractor(new ImageFactory());
+            imageStructureBuilder = new Image.ImageStructureBuilder(sourcePath: PATH, _FileDataExtractor);
+        }
+
+        [TestMethod]
+        public void Should_Not_Be_Created_NULL_FileDataExtractor()
+        {
+            Action action = () => new Image.ImageStructureBuilder(sourcePath: PATH, null);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [TestMethod]
         public void Should_Not_Be_Created_NULL_directoryPath()
         {
-            Action action = () => new Image.ImageStructureBuilder(sourcePath: null);
+            Action action = () => new Image.ImageStructureBuilder(sourcePath: null, _FileDataExtractor);
             action.Should().Throw<ArgumentException>();
         }
 
         [TestMethod]
         public void Should_Not_Be_Created_Directory_NotFound()
         {
-            Action action = () => new Image.ImageStructureBuilder(sourcePath: "some fake path");
+            Action action = () => new Image.ImageStructureBuilder(sourcePath: "some fake path", _FileDataExtractor);
             action.Should().Throw<DirectoryNotFoundException>();
         }
 
@@ -42,15 +51,14 @@ namespace Doppelganger.Image.Test
             using (new AssertionScope())
             {
                 structure.Should().NotBeNull();
-                structure.Should().BeOfType<ImageLibrary>();
-                structure.ChildElements.Count.Should().Be(14);
-                structure.ChildElements.OfType<ImageLibrary>().Count().Should().Be(7);
-                structure.ChildElements.OfType<NEF>().Count().Should().Be(3);
-                structure.ChildElements.OfType<PNG>().Count().Should().Be(4);
+                structure.Should().BeOfType<RootImageLibrary>();
+                structure.ImageLibraryCount.Should().Be(7);
+                structure.ImagesOfTypeCount<NEF>().Should().Be(3);
+                structure.ImagesOfTypeCount<PNG>().Should().Be(4);
 
-                structure.ChildElements.OfType<ImageLibrary>().Where(p => p.Name.ToLower().EndsWith("png7")).Should().NotBeNull();
-                structure.ChildElements.OfType<ImageLibrary>().Where(p => p.Name.ToLower().EndsWith("png7")).First().ChildElements.OfType<NEF>().Count().Should().Be(0);
-                structure.ChildElements.OfType<ImageLibrary>().Where(p => p.Name.ToLower().EndsWith("png7")).First().ChildElements.OfType<PNG>().Count().Should().Be(2);
+                structure.GetImageLibrary("Png7").Should().NotBeNull();
+                structure.GetImageLibrary("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
+                structure.GetImageLibrary("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
             }
         }
     }

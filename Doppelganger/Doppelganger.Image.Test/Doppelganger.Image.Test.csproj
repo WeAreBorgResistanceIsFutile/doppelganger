@@ -62,8 +62,12 @@
     <Compile Include="ImageLibraryTests.cs" />
     <Compile Include="ImageTests.cs" />
     <Compile Include="LearningTests\BitmapDecoderTests.cs" />
+    <Compile Include="LearningTests\MLNetTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NefToPngConverterTests.cs" />
+    <Compile Include="StoreTests\ImageLibraryStoreTests.cs" />
+    <Compile Include="StoreTests\ImageStoreTests.cs" />
+    <Compile Include="ImageFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

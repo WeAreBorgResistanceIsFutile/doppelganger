@@ -6,11 +6,7 @@ namespace Doppelganger.Image.ValueObjects
 {
     public class NEF : ImageBase
     {
-        public NEF()
-        {
-        }
-
-        public NEF(string fileName, int hashCode, int byteCount) : base(fileName, hashCode, byteCount)
+        public NEF(string fileName, int hash, int byteCount) : base(fileName, hash, byteCount)
         {
         }
     }
