@@ -1,13 +1,16 @@
-﻿using Doppelganger.Image.ValueObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
+using Doppelganger.Image.ValueObjects;
+
+using Newtonsoft.Json;
 
 namespace Doppelganger.Image.Stores
 {
     public class ImageLibraryStore
     {
+        [JsonProperty]
         readonly List<ImageLibrary> _library = new List<ImageLibrary>();
 
         public int Count { get { return _library.Count; } }
@@ -35,12 +38,6 @@ namespace Doppelganger.Image.Stores
         internal ImageLibrary GetImageLibrary(string name)
         {
             return _library.FirstOrDefault(p => p.Name.Equals(name));
-        }
-
-        private void ElementExistsCheck(ImageLibrary element)
-        {
-            if (!_library.Contains(element))
-                throw new ArgumentException($"Could not find {nameof(element)}: {element} in the {nameof(ImageLibraryStore)}.");
         }
     }
 }

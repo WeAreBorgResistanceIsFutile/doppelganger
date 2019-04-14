@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using System.Threading.Tasks;
 using Doppelganger.Image.ValueObjects;
 
 namespace Doppelganger.Image
@@ -74,14 +75,14 @@ namespace Doppelganger.Image
 
         private List<FileSystemElement> GetImageObject<T>(DirectoryInfo di, string extention) where T : ImageBase
         {
-            var retVar = new List<FileSystemElement>();
-            retVar = di.GetFiles().Where(p => p.Extension.ToLowerInvariant().Equals(extention)).Select(p =>
-            {
-                T fd = _FileDataExtractor.GetFileData<T>(p.Name, p.FullName, File.ReadAllBytes(p.FullName));
-                return fd;
-            }).ToList<FileSystemElement>();
+            var retVar = new ConcurrentBag<FileSystemElement>();
+            var alma = di.GetFiles().Where(p => p.Extension.ToLowerInvariant().Equals(extention));
 
-            return retVar;
+            Parallel.ForEach(alma, (p) => {
+                T fd = _FileDataExtractor.GetFileData<T>(p);
+                retVar.Add(fd);
+            });
+            return retVar.ToList();
         }
     }
 }

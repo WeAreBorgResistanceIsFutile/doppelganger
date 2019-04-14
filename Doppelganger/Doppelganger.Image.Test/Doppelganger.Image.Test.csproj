@@ -62,8 +62,8 @@
     <Reference Include="Shipwreck.Phash, Version=0.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Shipwreck.Phash.0.3.1\lib\net452\Shipwreck.Phash.dll</HintPath>
     </Reference>
-    <Reference Include="Shipwreck.Phash.Bitmaps, Version=0.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Shipwreck.Phash.Bitmaps.0.3.1\lib\net452\Shipwreck.Phash.Bitmaps.dll</HintPath>
+    <Reference Include="Shipwreck.Phash.PresentationCore, Version=0.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shipwreck.Phash.PresentationCore.0.3.1\lib\net452\Shipwreck.Phash.PresentationCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -116,6 +116,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Resources\ResourcesStructure.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\NIK_4062 - Copy.NEF">

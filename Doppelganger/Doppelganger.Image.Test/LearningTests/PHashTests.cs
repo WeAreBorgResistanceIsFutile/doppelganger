@@ -1,9 +1,12 @@
 ﻿using System.Drawing;
+using System.IO;
+using System.Windows.Media.Imaging;
 using Doppelganger.Image.ImageFormatConverters;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Shipwreck.Phash;
-using Shipwreck.Phash.Bitmaps;
+using Shipwreck.Phash.PresentationCore;
 
 namespace Doppelganger.Image.Test.LearningTests
 {
@@ -15,20 +18,10 @@ namespace Doppelganger.Image.Test.LearningTests
         [TestMethod]
         public void CalculatePHash_FullSize()
         {
-            var converter = new NefToPngConverter(FILE);
-
-            Bitmap image = new Bitmap(converter.Convert());
-            ImagePhash.ComputeDigest(image.ToLuminanceImage());
+            FileStream stream = new FileStream(FILE, FileMode.Open);
+            BitmapDecoder bmpDec = BitmapDecoder.Create(stream, BitmapCreateOptions.DelayCreation, BitmapCacheOption.OnDemand);
+            ImagePhash.ComputeDigest(bmpDec.Frames[0].ToLuminanceImage());
         }
 
-
-        [TestMethod]
-        public void CalculatePHash_160()
-        {
-            var converter = new NefToPngConverter(FILE);
-
-            Bitmap image = new Bitmap(converter.Convert(160));
-            ImagePhash.ComputeDigest(image.ToLuminanceImage());
-        }
     }
 }

@@ -12,11 +12,6 @@ namespace Doppelganger.Image.ValueObjects
         public byte[] PHash { get; private set; }
         public Guid UniqueId => _uniqueId;
 
-        public ImageBase() : base()
-        {
-            _uniqueId = Guid.NewGuid();
-        }
-
         public ImageBase(string fileName, int hash, int byteCount, byte[] pHash) : base(Path.GetFileNameWithoutExtension(fileName))
         {
             if (string.IsNullOrWhiteSpace(fileName))
@@ -25,16 +20,7 @@ namespace Doppelganger.Image.ValueObjects
             Hash = hash;
             ByteCount = byteCount;
             PHash = pHash;
-        }
-
-        public virtual void SetHash(int hash)
-        {
-            Hash = hash;
-        }
-
-        public virtual void SetByteCount(int byteCount)
-        {
-            ByteCount = byteCount;
+            _uniqueId = Guid.NewGuid();
         }
 
         public override bool Equals(object obj)
@@ -67,6 +53,11 @@ namespace Doppelganger.Image.ValueObjects
         public override string ToString()
         {
             return GetPath();
+        }
+
+        protected internal override void SetParent(FileSystemElement parent)
+        {
+            base.SetParent(parent);
         }
     }
 }

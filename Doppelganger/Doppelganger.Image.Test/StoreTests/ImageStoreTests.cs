@@ -19,7 +19,7 @@ namespace Doppelganger.Image.Test.StoreTests
         public void Add_Should_Work()
         {
             var ImageStore = new ImageStore();
-            ImageStore.Add(new NEF("some name",0,0));
+            ImageStore.Add(new NEF("some name",0,0, pHash: new byte[0]));
             ImageStore.Count.Should().Be(1);
         }
 
@@ -35,7 +35,7 @@ namespace Doppelganger.Image.Test.StoreTests
         public void Add_Multiple_Should_Work()
         {
             var ImageStore = new ImageStore();
-            ImageStore.Add(new ImageBase[] { new NEF("some name", 0, 0), new PNG("some name", 0, 0) });
+            ImageStore.Add(new ImageBase[] { new NEF("some name", 0, 0, pHash: new byte[0]), new PNG("some name", 0, 0, pHash: new byte[0]) });
             ImageStore.Count.Should().Be(2);
         }
 
@@ -43,8 +43,8 @@ namespace Doppelganger.Image.Test.StoreTests
         public void Remove_Should_Work()
         {
             var ImageStore = new ImageStore();
-            ImageStore.Add(new ImageBase[] { new NEF("some name", 0, 0), new PNG("some name", 0, 0) });
-            ImageStore.Remove(new PNG("some name", 0, 0));
+            ImageStore.Add(new ImageBase[] { new NEF("some name", 0, 0, pHash: new byte[0]), new PNG("some name", 0, 0, pHash: new byte[0]) });
+            ImageStore.Remove(ImageStore[1]);
             ImageStore.Count.Should().Be(1);
         }
     }

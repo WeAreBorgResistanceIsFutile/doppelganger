@@ -11,26 +11,26 @@ namespace Doppelganger.Image.Test
         [TestMethod]
         public void NEF_Create_Should_Work()
         {
-            new NEF("some file name", 0, 0);
+            new NEF("some file name", 0, 0, pHash: new byte[0]);
         }
 
         [TestMethod]
         public void NEF_Create_With_Name_NULL_Should_Fail()
         {
-            Action action = () => new NEF(null, 0, 0);
+            Action action = () => new NEF(null, 0, 0, pHash: new byte[0]);
             action.Should().Throw<ArgumentNullException>();
         }
 
         [TestMethod]
         public void Jpeg_Create_Should_Work()
         {
-            new PNG("some file name", 0, 0);
+            new PNG("some file name", 0, 0, pHash: new byte[0]);
         }
 
         [TestMethod]
         public void Jpeg_Create_With_Name_NULL_Should_Fail()
         {
-            Action action = () => new PNG(null, 0, 0);
+            Action action = () => new PNG(null, 0, 0, pHash: new byte[0]);
             action.Should().Throw<ArgumentNullException>();
         }
     }

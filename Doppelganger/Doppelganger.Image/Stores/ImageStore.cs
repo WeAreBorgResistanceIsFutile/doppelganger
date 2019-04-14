@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Doppelganger.Image.ValueObjects;
+using Newtonsoft.Json;
 
 namespace Doppelganger.Image.Stores
 {
     public class ImageStore
     {
         readonly Dictionary<int, List<Guid>> _hashIndex;
+
+        [JsonProperty]
         readonly List<ImageBase> _store;
 
         public ImageStore()

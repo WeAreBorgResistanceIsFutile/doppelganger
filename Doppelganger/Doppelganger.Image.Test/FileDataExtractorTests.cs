@@ -18,13 +18,21 @@ namespace Doppelganger.Image.Test
         [TestInitialize]
         public void InitTests()
         {
-            fde = new FileDataExtractor(new ImageFactory());
+            fde = new FileDataExtractor(new ImageFactory(), new PHashCalculator());
         }
 
         [TestMethod]
         public void Create_Should_Fail_null_ImageFactory()
         {
-            Action getFileData = () => new FileDataExtractor(null);
+            Action getFileData = () => new FileDataExtractor(null, new PHashCalculator());
+            getFileData.Should().Throw<ArgumentNullException>();
+        }
+
+
+        [TestMethod]
+        public void Create_Should_Fail_null_PHashCalculator()
+        {
+            Action getFileData = () => new FileDataExtractor(new ImageFactory(), null);
             getFileData.Should().Throw<ArgumentNullException>();
         }
 
@@ -32,12 +40,12 @@ namespace Doppelganger.Image.Test
         public void GetFileData_Should_Succeed()
         {
             string fileName = "NIK_4062";
-            var fd = GetFileData(fileName + ".NEF");
+            var fd = GetFileData(Path.Combine(PATH, fileName + ".NEF"));
 
             using (new AssertionScope())
             {
                 fd.Name.Should().Be(fileName);
-                fd.Hash.Should().Be(766030301);
+                fd.Hash.Should().Be(-1331913275);
                 fd.ByteCount.Should().Be(30906305);
             }
         }
@@ -51,49 +59,34 @@ namespace Doppelganger.Image.Test
             {
                 for (int i = 0; i < howManyTimes; i++)
                 {
-                    string fileName = "NIK_4062 - Copy";
-                    ValueObjects.ImageBase fd = GetFileData(fileName + ".NEF");
+                    string fileName = "NIK_9588";
+                    ValueObjects.ImageBase fd = GetFileData(Path.Combine(PATH, fileName + ".png"));
 
                     fd.Name.Should().Be(fileName);
-                    fd.Hash.Should().Be(766030301);
-                    fd.ByteCount.Should().Be(30906305);
+                    fd.Hash.Should().Be(815570373);
+                    fd.ByteCount.Should().Be(31459);
                 }
             }
         }
 
         private ValueObjects.ImageBase GetFileData(string fileName)
         {
-            byte[] content = System.IO.File.ReadAllBytes(Path.Combine(PATH, fileName));
-
-            ValueObjects.ImageBase fd = fde.GetFileData<NEF>(fileName, Path.Combine(PATH), content);
+            ValueObjects.ImageBase fd = fde.GetFileData<NEF>(new FileInfo( fileName));
             return fd;
         }
 
         [TestMethod]
-        public void GetFileData_Should_Fail_null_filename()
+        public void GetFileData_Should_Fail_null_file()
         {
-            Action getFileData = () => fde.GetFileData<NEF>(null, Path.Combine(PATH), new byte[0]);
+            Action getFileData = () => fde.GetFileData<NEF>(null);
             getFileData.Should().Throw<ArgumentException>();
         }
 
         [TestMethod]
-        public void GetFileData_Should_Fail_null_filepath()
+        public void GetFileData_Should_Fail_invalid_filepath()
         {
-            Action getFileData = () => fde.GetFileData<NEF>("some.file", null, new byte[0]);
-            getFileData.Should().Throw<ArgumentException>();
-        }
-
-        [TestMethod]
-        public void GetFileData_Should_Fail_null_content()
-        {
-            Action getFileData = () => fde.GetFileData<NEF>("some.file", Path.Combine(PATH), null);
-            getFileData.Should().Throw<ArgumentNullException>();
-        }
-
-        [TestMethod]
-        public void GetFileData_Should_Not_Fail_invalid_filename_and_path()
-        {
-            fde.GetFileData<NEF>("some.file", Path.Combine(PATH), new byte[0]);
-        }
+            Action action = () => fde.GetFileData<NEF>(new FileInfo("Some file"));
+            action.Should().Throw<FileNotFoundException>();
+        }       
     }
 }

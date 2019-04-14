@@ -1,4 +1,5 @@
 ﻿using Doppelganger.Image.Stores;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +10,9 @@ namespace Doppelganger.Image.ValueObjects
 {
     public class ImageLibrary : FileSystemElement
     {
+        [JsonProperty]
         readonly ImageStore _imageStore;
+        [JsonProperty]
         readonly ImageLibraryStore _libraryStore;
 
         public int ImageLibraryCount => _libraryStore.Count;
@@ -22,6 +25,29 @@ namespace Doppelganger.Image.ValueObjects
         }
 
         public ImageBase this[int index] => _imageStore[index];
+
+        protected internal override void SetParent(FileSystemElement parent)
+        {
+            base.SetParent(parent);
+            SetMeAsParrentOfEachChildLibrary();
+            SetMeAsParrentOfEachChildImage();
+        }
+
+        protected void SetMeAsParrentOfEachChildImage()
+        {
+            for (int i = 0; i < _imageStore.Count; i++)
+            {
+                _imageStore[i].SetParent(this);
+            }
+        }
+
+        protected void SetMeAsParrentOfEachChildLibrary()
+        {
+            for (int i = 0; i < _libraryStore.Count; i++)
+            {
+                _libraryStore[i].SetParent(this);
+            }
+        }
 
         public virtual void Add(FileSystemElement element)
         {
