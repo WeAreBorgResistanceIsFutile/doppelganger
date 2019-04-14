@@ -4,20 +4,17 @@ using System.Linq;
 
 using Doppelganger.Image.ValueObjects;
 
-using Newtonsoft.Json;
-
 namespace Doppelganger.Image.Stores
 {
     public class ImageLibraryStore
     {
-        [JsonProperty]
-        readonly List<ImageLibrary> _library = new List<ImageLibrary>();
+        [Doppelganger.Image.Api.Attributes.Serializable(nameof(_library))]
+        protected readonly List<ImageLibrary> _library = new List<ImageLibrary>();
 
         public int Count { get { return _library.Count; } }
 
         public ImageLibrary this[int index] => (index >=0 && index < Count) ? _library[index] : null;
             
-
         public void Add(ImageLibrary library)
         {
             if (library is null)

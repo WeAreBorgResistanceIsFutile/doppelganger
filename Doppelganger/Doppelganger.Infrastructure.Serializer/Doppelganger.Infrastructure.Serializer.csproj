@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doppelganger.Image.Api\Doppelganger.Image.Api.csproj" />
+    <ProjectReference Include="..\Doppelganger.Infrastructure.Api\Doppelganger.Infrastructure.Api.csproj" />
+  </ItemGroup>
+
+</Project>

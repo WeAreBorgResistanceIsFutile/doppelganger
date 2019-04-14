@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 using Doppelganger.Image.ValueObjects;
-using Newtonsoft.Json;
 
 namespace Doppelganger.Image.Stores
 {
@@ -11,9 +10,9 @@ namespace Doppelganger.Image.Stores
     {
         readonly Dictionary<int, List<Guid>> _hashIndex;
 
-        [JsonProperty]
-        readonly List<ImageBase> _store;
-
+        [Doppelganger.Image.Api.Attributes.Serializable(nameof(_store))]
+        protected readonly List<ImageBase> _store;
+           
         public ImageStore()
         {
             _hashIndex = new Dictionary<int, List<Guid>>();

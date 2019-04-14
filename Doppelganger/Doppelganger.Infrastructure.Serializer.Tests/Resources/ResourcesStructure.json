@@ -1,0 +1,692 @@
+{
+  "$type": "Doppelganger.Image.ValueObjects.RootImageLibrary, Doppelganger.Image",
+  "ImageLibraryCount": 7,
+  "ImageCount": 4,
+  "FileName": "Resources",
+  "Path": "C:\\Projects\\Doppelganger\\Doppelganger\\Doppelganger.Infrastructure.Serializer.Tests\\bin\\Debug\\Resources",
+  "_imageStore": {
+    "$type": "Doppelganger.Image.Stores.ImageStore, Doppelganger.Image",
+    "Count": 4,
+    "_store": {
+      "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageBase, Doppelganger.Image]], mscorlib",
+      "$values": [
+        {
+          "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+          "Hash": 815570373,
+          "ByteCount": 27268,
+          "PHash": {
+            "$type": "System.Byte[], mscorlib",
+            "$value": "0XQAz0rbfuSp8ty2/8rA7K/W0cXV2MLe0Mjc1czd0NPVy9jL0tbK2w=="
+          },
+          "UniqueId": "4046c471-6818-4178-aff6-a7ef75058d18",
+          "FileName": "NIK_9587"
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+          "Hash": 815570373,
+          "ByteCount": 28268,
+          "PHash": {
+            "$type": "System.Byte[], mscorlib",
+            "$value": "v5cA/zqyG9RntaShxamP18O72MfVrq7Ws6jRt7q9r9K5uMbItbnCww=="
+          },
+          "UniqueId": "f758096c-eaa3-46e0-a9ea-f68de6265ea2",
+          "FileName": "NIK_9589"
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+          "Hash": 815570373,
+          "ByteCount": 31459,
+          "PHash": {
+            "$type": "System.Byte[], mscorlib",
+            "$value": "vv8AkkDiW8GRu6ml07u7wq/ByqfHybrBvMHGr8HJtL66v8Szw8y1tw=="
+          },
+          "UniqueId": "08a634cc-dda7-4d33-96d3-5f6c345c90b8",
+          "FileName": "NIK_9588"
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+          "Hash": 815570373,
+          "ByteCount": 30612,
+          "PHash": {
+            "$type": "System.Byte[], mscorlib",
+            "$value": "e3cA/yEug6E7cLY4t1+lfmuPWnuIaXOjaHeFdX10dY5ueIhzfIBwhg=="
+          },
+          "UniqueId": "3fae1c92-c806-4147-9425-eb16aca844ed",
+          "FileName": "NIK_9586"
+        }
+      ]
+    }
+  },
+  "_libraryStore": {
+    "$type": "Doppelganger.Image.Stores.ImageLibraryStore, Doppelganger.Image",
+    "Count": 7,
+    "_library": {
+      "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image]], mscorlib",
+      "$values": [
+        {
+          "$type": "Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image",
+          "ImageLibraryCount": 0,
+          "ImageCount": 6,
+          "FileName": "Png1",
+          "_imageStore": {
+            "$type": "Doppelganger.Image.Stores.ImageStore, Doppelganger.Image",
+            "Count": 6,
+            "_store": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageBase, Doppelganger.Image]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 34591,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "df4AGmeoDGZsOJxqVVg9aHJumld9i2FsiYiBdYF5Y4d+dIN2cXJpdA=="
+                  },
+                  "UniqueId": "43592526-f492-45db-addc-9db9cf0f534e",
+                  "FileName": "NIK_9995"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 35120,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "mv8ACOaUZGGzjah2gmSmiaKVwJS3ppudt6ykpKaiiZ2do52YjpiVoQ=="
+                  },
+                  "UniqueId": "ab4d0c07-08a2-4e35-97d9-e116aba7480f",
+                  "FileName": "NIK_9994"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 34638,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "h/+bAKtlEKZvYGyNRE9agnR6jW91lnqbkJaJlYaGeqSEg4qSeYeDiw=="
+                  },
+                  "UniqueId": "40b0f88f-45c3-41ec-bbd9-5252202e6b54",
+                  "FileName": "NIK_9996"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 33863,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "gv8fAICrPJSuS7JwmHiBfoyNkGKDnnuQl4Z+e5KHeoeGfYqAfYWAiQ=="
+                  },
+                  "UniqueId": "f19fb958-fed3-42fd-a7df-339aaaff9728",
+                  "FileName": "NIK_9999"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 34474,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "TP8pAIksBzYkEF00OjNJO2lOX0BnRUlMYUhXUFBRQlRMUlJTQlJGUg=="
+                  },
+                  "UniqueId": "e3828dcb-5824-4bc0-b0b5-bf2c762b13ae",
+                  "FileName": "NIK_9997"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 34147,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "U/8LAEwwIwosQ1hdVC9TOVVdWDxOTktbSFxbVVJcQWFVXl1KT1pNVA=="
+                  },
+                  "UniqueId": "0dd56f89-2e68-4df6-aa82-100303004f42",
+                  "FileName": "NIK_9998"
+                }
+              ]
+            }
+          },
+          "_libraryStore": {
+            "$type": "Doppelganger.Image.Stores.ImageLibraryStore, Doppelganger.Image",
+            "Count": 0,
+            "_library": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image]], mscorlib",
+              "$values": []
+            }
+          }
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image",
+          "ImageLibraryCount": 0,
+          "ImageCount": 14,
+          "FileName": "Png2",
+          "_imageStore": {
+            "$type": "Doppelganger.Image.Stores.ImageStore, Doppelganger.Image",
+            "Count": 14,
+            "_store": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageBase, Doppelganger.Image]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 36852,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "nXoAetPek8xiZ//Bd6lnuqqvqmyklrSshoyopKKXlpqhl6yal52Ypw=="
+                  },
+                  "UniqueId": "35eef9f6-852e-43db-9ca7-295e7fe98e13",
+                  "FileName": "NIK_9974"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37375,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "nKEAbuT/lLCJWPbNeZthsbeXvmiLoay7gn+roamVkZagoKWcjpyWpA=="
+                  },
+                  "UniqueId": "fdf47de8-7c89-4ae6-b78a-0157fc803178",
+                  "FileName": "NIK_9977"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 36738,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "yFkA/8HIws606Mm9usncscngrc3UsdnZptnNv8zLwdHAyc7FwcjPxw=="
+                  },
+                  "UniqueId": "15be279f-e8e4-4f49-b9cc-efe57a1db224",
+                  "FileName": "NIK_9972"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 36891,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "v5YA1fvP1quf28/CyZqu/7ie0b++u8XHvLXFwbrKt7nEv8e+tLzGww=="
+                  },
+                  "UniqueId": "612d9204-7fbb-4d97-b12b-e15df3baafa1",
+                  "FileName": "NIK_9973"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37559,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "cEQJAMH/LoBTCtDAQHEShKhynUFbfl+yY0GGeINtUHVpgIhfZmpmgQ=="
+                  },
+                  "UniqueId": "ea2232d7-e427-4b9c-aeb4-6e9fb9a4905f",
+                  "FileName": "NIK_9976"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37655,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "knEAUqP/fYmKV8i6e4p2ja2XoYF+oo6qnHudm5yfgJWTkqqOhomSoA=="
+                  },
+                  "UniqueId": "2d6bd2b1-bb8d-470f-8ddf-1e647123e8b7",
+                  "FileName": "NIK_9979"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37253,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "rKMAm+T/mMBxZu3FfqRyusOhwXmnrbrDlp28tbimqK+0sLWsoLCrtw=="
+                  },
+                  "UniqueId": "9910b965-9f15-4bba-ac2a-69052908b3a6",
+                  "FileName": "NIK_9978"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 35549,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "3f8AnO/roNjOzfPjz9DO+sXq073k89Toytnq0d7g1uHl0ePU5OTS6Q=="
+                  },
+                  "UniqueId": "10b97039-d57f-4bc6-9c64-ca6a86ba2088",
+                  "FileName": "NIK_9971"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37555,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "iikAIqr+bcd9DezFQZBH2oOJq1eXeZSUlGaigJqHgIOVgKZ7gJCCmw=="
+                  },
+                  "UniqueId": "be362764-05e7-4354-bd12-90327885ba9b",
+                  "FileName": "NIK_9981"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37325,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "kFQAX3v/iZaQYMSpdIt+tomWkImVk4erjnqalZaOj5SPjZuLj5ORlQ=="
+                  },
+                  "UniqueId": "af61157e-64fb-407a-b58b-a7e4dfa1c5c2",
+                  "FileName": "NIK_9980"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37990,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "n1wAIYv/NOZ/ROjlYbJ+tsaE5WqStnrBkoy2pK2hab+asKSWmaaXoQ=="
+                  },
+                  "UniqueId": "3cb9813f-693a-4400-82f3-d220540a904e",
+                  "FileName": "NIK_9982"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37636,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "xp0Akdv7nOXFm/7Ls9GyzeC/yc6x1MLRw7DtvbTfrNLTucy9ydK6zA=="
+                  },
+                  "UniqueId": "23afa7ec-579d-4533-ab64-6e257fc8da01",
+                  "FileName": "NIK_9985"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37930,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "jW8AK4PuJs6FQv6jQq50eaCC1l+Crl+ldnuzmpJ9aquXgI+PlZZ2jg=="
+                  },
+                  "UniqueId": "1c9cf591-a906-4750-b535-284e0a9b2cca",
+                  "FileName": "NIK_9983"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 37645,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "nncAT6P/VdeVhN6NgbB8m8yYrX+TqI+qlqGslo+tmJecnryRjZ+XsA=="
+                  },
+                  "UniqueId": "55cf2e24-9700-465e-aa61-781f7a6d58e3",
+                  "FileName": "NIK_9984"
+                }
+              ]
+            }
+          },
+          "_libraryStore": {
+            "$type": "Doppelganger.Image.Stores.ImageLibraryStore, Doppelganger.Image",
+            "Count": 0,
+            "_library": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image]], mscorlib",
+              "$values": []
+            }
+          }
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image",
+          "ImageLibraryCount": 0,
+          "ImageCount": 6,
+          "FileName": "Png3",
+          "_imageStore": {
+            "$type": "Doppelganger.Image.Stores.ImageStore, Doppelganger.Image",
+            "Count": 6,
+            "_store": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageBase, Doppelganger.Image]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 12679,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "z/8AcfX9ueH6wbq+v+Plzcna0a3D8NzH09C/w93fys7Uy8rM0NbV0Q=="
+                  },
+                  "UniqueId": "4369f8ba-86bb-4eac-8871-a1ab62befd66",
+                  "FileName": "NIK_9857"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 12502,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "xPUAaMncx//mi7PRscDa18PAwKe74s7BzL6uu9fQu8nMuLvFx8fIyw=="
+                  },
+                  "UniqueId": "7e5f728e-365e-44a7-9509-06588d91ac09",
+                  "FileName": "NIK_9859"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 12737,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "yfcAbPz/qcz2xbWwuuDcw8TUyafA6NG/zsy4u9fZwsbPxcHEy9HMyQ=="
+                  },
+                  "UniqueId": "a22144a2-c9c3-4953-aae1-edcd3787941e",
+                  "FileName": "NIK_9860"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 12665,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "xP8AZbjZ1fzij7TQqr7l2r29w6u24NfDxr2zvdHPw8rHt77Hw8fPzA=="
+                  },
+                  "UniqueId": "21bbe599-5c16-4f28-9752-1641fa1509ef",
+                  "FileName": "NIK_9856"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 12413,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "xPgAZsHd0f/hi7fTrL/f2b+/xKi34dTEyLyyvdPQwMrIt7/Hw8bNzA=="
+                  },
+                  "UniqueId": "8b403361-a5fe-469a-acb5-c9a62dcce16d",
+                  "FileName": "NIK_9858"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 12694,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "xf8AaLvb1PvlkrPRrcDj2cG/wqu54dbEyL6yvtPQwsrJub7HxcjOzA=="
+                  },
+                  "UniqueId": "d60e70a2-b55f-4d1b-838a-878a135fcc39",
+                  "FileName": "NIK_9855"
+                }
+              ]
+            }
+          },
+          "_libraryStore": {
+            "$type": "Doppelganger.Image.Stores.ImageLibraryStore, Doppelganger.Image",
+            "Count": 0,
+            "_library": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image]], mscorlib",
+              "$values": []
+            }
+          }
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image",
+          "ImageLibraryCount": 0,
+          "ImageCount": 6,
+          "FileName": "Png4",
+          "_imageStore": {
+            "$type": "Doppelganger.Image.Stores.ImageStore, Doppelganger.Image",
+            "Count": 6,
+            "_store": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageBase, Doppelganger.Image]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 24882,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "xgD+8l/yTf5h66DHlNl655TYx8TDwbuozqLjrd7EzMfHxMnKwNi60g=="
+                  },
+                  "UniqueId": "b2c2dc80-3f5f-42d9-bded-f34c73cf9135",
+                  "FileName": "NIK_9640"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 24820,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "iQCl/yjTZpRaf4YshW9EklyNc3d/e3CFeIJ9h22WZpB0in+HfY98hQ=="
+                  },
+                  "UniqueId": "c67bb370-f20a-4273-971d-64549e73dd88",
+                  "FileName": "NIK_9636"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 24756,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "oQDs/znqI/FFt52ChJRnlJCBxoO2j6KGlZKQoYS6drqCp5qenqaenQ=="
+                  },
+                  "UniqueId": "7426a100-36ee-4967-9364-30014f8d705d",
+                  "FileName": "NIK_9639"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 24603,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "mACL/yTgYJ1akoNAlX9TqmSgfoiMioWRjpGUk4ikg6GOn5KdjaaKoA=="
+                  },
+                  "UniqueId": "0b253adb-3dff-4f65-8343-1533ab22e658",
+                  "FileName": "NIK_9635"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 21526,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "2ACWppbyjMC19Kf6pv+65NP3yvDJ6tHd3O3Z49zd3Nfe4tna29jZ1A=="
+                  },
+                  "UniqueId": "04693999-4fa7-4691-bdfa-2ba8486f8322",
+                  "FileName": "NIK_9634"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 24692,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "mRqq/wDkHrxLdZVHe3BpmVu/eq19t4WSqIq0hqamh6aOpZWYopublQ=="
+                  },
+                  "UniqueId": "91c042f1-22a7-466e-b81b-bc5862b5e2e7",
+                  "FileName": "NIK_9637"
+                }
+              ]
+            }
+          },
+          "_libraryStore": {
+            "$type": "Doppelganger.Image.Stores.ImageLibraryStore, Doppelganger.Image",
+            "Count": 0,
+            "_library": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image]], mscorlib",
+              "$values": []
+            }
+          }
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image",
+          "ImageLibraryCount": 0,
+          "ImageCount": 4,
+          "FileName": "Png5",
+          "_imageStore": {
+            "$type": "Doppelganger.Image.Stores.ImageStore, Doppelganger.Image",
+            "Count": 4,
+            "_store": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageBase, Doppelganger.Image]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 22840,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "jDAA+pKLsxys/ztqorSPVZK9eHqSkKBskKR+hpGOknyRnXqNlYuLgg=="
+                  },
+                  "UniqueId": "74a47e61-04c6-424d-96e6-a1ab79b6766f",
+                  "FileName": "NIK_9644"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 21500,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "egcA/2R9pQWk7hhjmpSGNJCqYWiAgo1ZeJ5henx9g2Z/jGh7gXWAbQ=="
+                  },
+                  "UniqueId": "3a5d85a9-83ed-445b-8147-d9da538cdd2f",
+                  "FileName": "NIK_9643"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 22279,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "mU0A/q2Kv0ec/2Z1oLitZZ66i46fmqSImqyImJ+am4ygpoiXo5yXiw=="
+                  },
+                  "UniqueId": "66830d6a-92bd-43e5-8902-4599790fcc26",
+                  "FileName": "NIK_9647"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 23166,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "qo8A+8mqymPE/5+To620i7HHpKaqpquXsbuhpq6sqJewu6Okq6upnQ=="
+                  },
+                  "UniqueId": "5dd8c379-3764-48d7-8a73-c0fc3720014e",
+                  "FileName": "NIK_9642"
+                }
+              ]
+            }
+          },
+          "_libraryStore": {
+            "$type": "Doppelganger.Image.Stores.ImageLibraryStore, Doppelganger.Image",
+            "Count": 0,
+            "_library": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image]], mscorlib",
+              "$values": []
+            }
+          }
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image",
+          "ImageLibraryCount": 0,
+          "ImageCount": 4,
+          "FileName": "Png6",
+          "_imageStore": {
+            "$type": "Doppelganger.Image.Stores.ImageStore, Doppelganger.Image",
+            "Count": 4,
+            "_store": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageBase, Doppelganger.Image]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 25719,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "Tf9Xbhk4ABgpQUwtTTk7N01LVUNOSkJIUFNRS0xLR0dRUU5LS0xISw=="
+                  },
+                  "UniqueId": "769acbc4-6ad4-4fc9-b348-527623c9f8ee",
+                  "FileName": "NIK_9593"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 23824,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "R/8NMwpIAEElQUEuRDo6NkE7QzlKQEBIRz9QP0pIRE1GR01BSEhDRw=="
+                  },
+                  "UniqueId": "02c9bf14-b410-434f-99e4-113c1af6e446",
+                  "FileName": "NIK_9594"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 21711,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "h/8AyzxpN3VXZbdLsINdq2p6qGWaiHqMj26bfnuXeouUepeBhI2Biw=="
+                  },
+                  "UniqueId": "49ec1187-6246-489d-a062-5fa2bcbc91c4",
+                  "FileName": "NIK_9592"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 25171,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "hf8ArB1KE21LY6xxpYt3j26Djn2QkHSShHGbco6LdpWCfJF6g4Z6iQ=="
+                  },
+                  "UniqueId": "e4274010-df64-4d1b-9e14-80ded0d96159",
+                  "FileName": "NIK_9591"
+                }
+              ]
+            }
+          },
+          "_libraryStore": {
+            "$type": "Doppelganger.Image.Stores.ImageLibraryStore, Doppelganger.Image",
+            "Count": 0,
+            "_library": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image]], mscorlib",
+              "$values": []
+            }
+          }
+        },
+        {
+          "$type": "Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image",
+          "ImageLibraryCount": 0,
+          "ImageCount": 2,
+          "FileName": "Png7",
+          "_imageStore": {
+            "$type": "Doppelganger.Image.Stores.ImageStore, Doppelganger.Image",
+            "Count": 2,
+            "_store": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageBase, Doppelganger.Image]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 41832,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "RR7/XHpUOQA8WRsuBHVLPVJCKiwvT0pXVEg2Q1ZGVFFMO0pMNkw7UA=="
+                  },
+                  "UniqueId": "07e01904-fcb3-45ad-8635-33ecfad5d879",
+                  "FileName": "NIK_9630"
+                },
+                {
+                  "$type": "Doppelganger.Image.ValueObjects.PNG, Doppelganger.Image",
+                  "Hash": 815570373,
+                  "ByteCount": 40846,
+                  "PHash": {
+                    "$type": "System.Byte[], mscorlib",
+                    "$value": "WgD/kxuUSnIXFU5MMZdDLXBUgIKhUzZKbGs6VVpfSk5ZWzZigl9NZw=="
+                  },
+                  "UniqueId": "a1b7f1f3-9955-4147-b35d-97f658cbde55",
+                  "FileName": "NIK_9629"
+                }
+              ]
+            }
+          },
+          "_libraryStore": {
+            "$type": "Doppelganger.Image.Stores.ImageLibraryStore, Doppelganger.Image",
+            "Count": 0,
+            "_library": {
+              "$type": "System.Collections.Generic.List`1[[Doppelganger.Image.ValueObjects.ImageLibrary, Doppelganger.Image]], mscorlib",
+              "$values": []
+            }
+          }
+        }
+      ]
+    }
+  }
+}

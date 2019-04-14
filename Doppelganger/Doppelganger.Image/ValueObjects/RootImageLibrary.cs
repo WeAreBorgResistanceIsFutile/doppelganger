@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
 
 namespace Doppelganger.Image.ValueObjects
 {
     public class RootImageLibrary : ImageLibrary
     {
-        [JsonProperty("Path")]
+        [Doppelganger.Image.Api.Attributes.Serializable("Path")]
         private readonly string _rootPath;
+               
 
-        public RootImageLibrary(string path) : base(path)
+        public RootImageLibrary(string name) : base(name)
         {
-            _rootPath = path;
+            _rootPath = name;
         }
 
         public void FinishDehydrationProcess()

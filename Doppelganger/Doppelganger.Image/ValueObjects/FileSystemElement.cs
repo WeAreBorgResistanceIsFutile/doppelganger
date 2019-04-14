@@ -1,14 +1,10 @@
-﻿using System.IO;
-using System.Text;
-using Newtonsoft.Json;
-
-namespace Doppelganger.Image.ValueObjects
+﻿namespace Doppelganger.Image.ValueObjects
 {
     public abstract class FileSystemElement
     {
-        protected FileSystemElement Parent { get; private set; }
+        protected FileSystemElement _parent;
 
-        [JsonProperty("FileName")]
+        [Doppelganger.Image.Api.Attributes.Serializable("FileName")]
         public string Name { get; private set; }
 
         public FileSystemElement(string name)
@@ -16,7 +12,7 @@ namespace Doppelganger.Image.ValueObjects
             Name = name;
         }
 
-        protected internal virtual void SetParent(FileSystemElement parent) => Parent = parent;
+        protected internal virtual void SetParent(FileSystemElement parent) => _parent = parent;
 
         public string GetPath()
         {
@@ -25,7 +21,7 @@ namespace Doppelganger.Image.ValueObjects
 
         protected virtual string GetPath(string path)
         {
-            if (Parent is FileSystemElement p)
+            if (_parent is FileSystemElement p)
                 path += $@"{p.GetPath(path)}\";
 
             path += $@"{Name}";

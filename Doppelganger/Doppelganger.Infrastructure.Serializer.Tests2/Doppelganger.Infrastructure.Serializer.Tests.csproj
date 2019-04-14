@@ -1,0 +1,233 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\NIK_9586.png" />
+    <None Remove="Resources\NIK_9587.png" />
+    <None Remove="Resources\NIK_9588.png" />
+    <None Remove="Resources\NIK_9589.png" />
+    <None Remove="Resources\Png1\NIK_9994.png" />
+    <None Remove="Resources\Png1\NIK_9995.png" />
+    <None Remove="Resources\Png1\NIK_9996.png" />
+    <None Remove="Resources\Png1\NIK_9997.png" />
+    <None Remove="Resources\Png1\NIK_9998.png" />
+    <None Remove="Resources\Png1\NIK_9999.png" />
+    <None Remove="Resources\Png2\NIK_9971.png" />
+    <None Remove="Resources\Png2\NIK_9972.png" />
+    <None Remove="Resources\Png2\NIK_9973.png" />
+    <None Remove="Resources\Png2\NIK_9974.png" />
+    <None Remove="Resources\Png2\NIK_9976.png" />
+    <None Remove="Resources\Png2\NIK_9977.png" />
+    <None Remove="Resources\Png2\NIK_9978.png" />
+    <None Remove="Resources\Png2\NIK_9979.png" />
+    <None Remove="Resources\Png2\NIK_9980.png" />
+    <None Remove="Resources\Png2\NIK_9981.png" />
+    <None Remove="Resources\Png2\NIK_9982.png" />
+    <None Remove="Resources\Png2\NIK_9983.png" />
+    <None Remove="Resources\Png2\NIK_9984.png" />
+    <None Remove="Resources\Png2\NIK_9985.png" />
+    <None Remove="Resources\Png3\NIK_9855.png" />
+    <None Remove="Resources\Png3\NIK_9856.png" />
+    <None Remove="Resources\Png3\NIK_9857.png" />
+    <None Remove="Resources\Png3\NIK_9858.png" />
+    <None Remove="Resources\Png3\NIK_9859.png" />
+    <None Remove="Resources\Png3\NIK_9860.png" />
+    <None Remove="Resources\Png4\NIK_9634.png" />
+    <None Remove="Resources\Png4\NIK_9635.png" />
+    <None Remove="Resources\Png4\NIK_9636.png" />
+    <None Remove="Resources\Png4\NIK_9637.png" />
+    <None Remove="Resources\Png4\NIK_9639.png" />
+    <None Remove="Resources\Png4\NIK_9640.png" />
+    <None Remove="Resources\Png5\NIK_9642.png" />
+    <None Remove="Resources\Png5\NIK_9643.png" />
+    <None Remove="Resources\Png5\NIK_9644.png" />
+    <None Remove="Resources\Png5\NIK_9647.png" />
+    <None Remove="Resources\Png6\NIK_9591.png" />
+    <None Remove="Resources\Png6\NIK_9592.png" />
+    <None Remove="Resources\Png6\NIK_9593.png" />
+    <None Remove="Resources\Png6\NIK_9594.png" />
+    <None Remove="Resources\Png7\NIK_9629.png" />
+    <None Remove="Resources\Png7\NIK_9630.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\NIK_9586.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\NIK_9587.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\NIK_9588.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\NIK_9589.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png1\NIK_9994.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png1\NIK_9995.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png1\NIK_9996.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png1\NIK_9997.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png1\NIK_9998.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png1\NIK_9999.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9971.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9972.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9973.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9974.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9976.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9977.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9978.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9979.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9980.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9981.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9982.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9983.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9984.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png2\NIK_9985.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png3\NIK_9855.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png3\NIK_9856.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png3\NIK_9857.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png3\NIK_9858.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png3\NIK_9859.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png3\NIK_9860.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png4\NIK_9634.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png4\NIK_9635.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png4\NIK_9636.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png4\NIK_9637.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png4\NIK_9639.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png4\NIK_9640.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png5\NIK_9642.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png5\NIK_9643.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png5\NIK_9644.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png5\NIK_9647.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png6\NIK_9591.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png6\NIK_9592.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png6\NIK_9593.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png6\NIK_9594.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png7\NIK_9629.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Png7\NIK_9630.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.6.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Shipwreck.Phash" Version="0.3.1" />
+    <PackageReference Include="Shipwreck.Phash.PresentationCore" Version="0.3.1" />
+    <PackageReference Include="WindowsBase" Version="4.6.1055" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doppelganger.Image\Doppelganger.Image.csproj" />
+    <ProjectReference Include="..\Doppelganger.Infrastructure.Api\Doppelganger.Infrastructure.Api.csproj" />
+    <ProjectReference Include="..\Doppelganger.Infrastructure.Serializer\Doppelganger.Infrastructure.Serializer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\WindowsBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\ResourcesStructure.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

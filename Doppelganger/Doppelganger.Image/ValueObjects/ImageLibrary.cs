@@ -1,24 +1,24 @@
-﻿using Doppelganger.Image.Stores;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
+
+using Doppelganger.Image.Stores;
 
 namespace Doppelganger.Image.ValueObjects
 {
     public class ImageLibrary : FileSystemElement
     {
-        [JsonProperty]
-        readonly ImageStore _imageStore;
-        [JsonProperty]
-        readonly ImageLibraryStore _libraryStore;
+        [Doppelganger.Image.Api.Attributes.Serializable(nameof(_imageStore))]
+        protected readonly ImageStore _imageStore;
+
+        [Doppelganger.Image.Api.Attributes.Serializable(nameof(_libraryStore))]
+        protected readonly ImageLibraryStore _libraryStore;
 
         public int ImageLibraryCount => _libraryStore.Count;
         public int ImageCount => _imageStore.Count;
 
-        public ImageLibrary(string path) : base(Path.GetFileName(path))
+        public ImageLibrary(string name) : base(Path.GetFileName(name))
         {
             _imageStore = new ImageStore();
             _libraryStore = new ImageLibraryStore();
@@ -94,7 +94,7 @@ namespace Doppelganger.Image.ValueObjects
         {
             if (element is null)
                 throw new ArgumentNullException(nameof(element), "should not be null");
-        }        
+        }
         private void Add(ImageLibrary element)
         {
             _libraryStore.Add(element);
@@ -121,8 +121,8 @@ namespace Doppelganger.Image.ValueObjects
                 equals = (imageLibrary.Name?.Equals(this.Name) ?? false)
                             && imageLibrary.ImageLibraryCount.Equals(this.ImageLibraryCount)
                             && imageLibrary.GetPath().Equals(this.GetPath());
-                if(equals)
-                    for(int i = 0; i < this.ImageLibraryCount; i++)
+                if (equals)
+                    for (int i = 0; i < this.ImageLibraryCount; i++)
                     {
                         equals = equals && GetImageLibraryAt(i).Equals(imageLibrary.GetImageLibraryAt(i));
                     }
@@ -146,7 +146,7 @@ namespace Doppelganger.Image.ValueObjects
                 int hash = HashingBase;
 
                 hash = (hash * HashingMultiplier) ^ Name.GetHashCode();
-                
+
 
                 return hash;
             }
