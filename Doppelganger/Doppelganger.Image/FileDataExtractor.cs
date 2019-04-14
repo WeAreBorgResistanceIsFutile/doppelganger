@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Doppelganger.Image.ValueObjects;
 
 namespace Doppelganger.Image

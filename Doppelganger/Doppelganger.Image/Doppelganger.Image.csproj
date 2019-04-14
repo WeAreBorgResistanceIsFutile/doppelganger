@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Doppelganger.Image.PHash\Doppelganger.Image.PHash.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Microsoft.CSharp">
       <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll</HintPath>
     </Reference>

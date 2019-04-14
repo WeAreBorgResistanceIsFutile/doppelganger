@@ -5,24 +5,28 @@ namespace Doppelganger.Image.ValueObjects
 {
     public abstract class ImageBase : FileSystemElement
     {
-        private Guid _uniqueId;
-
+        private readonly Guid _uniqueId;
+        
         public int Hash { get; private set; }
         public int ByteCount { get; private set; }
+        public byte[] PHash { get; private set; }
         public Guid UniqueId => _uniqueId;
 
         public ImageBase() : base()
         {
             _uniqueId = Guid.NewGuid();
         }
-        public ImageBase(string fileName, int hash, int byteCount) : base(Path.GetFileNameWithoutExtension(fileName))
+
+        public ImageBase(string fileName, int hash, int byteCount, byte[] pHash) : base(Path.GetFileNameWithoutExtension(fileName))
         {
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentNullException(nameof(fileName), "Should not be empthy or null");
 
             Hash = hash;
             ByteCount = byteCount;
+            PHash = pHash;
         }
+
         public virtual void SetHash(int hash)
         {
             Hash = hash;

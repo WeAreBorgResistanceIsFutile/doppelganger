@@ -1,4 +1,5 @@
 ﻿using Doppelganger.Image;
+using Doppelganger.Image.PHash;
 using Doppelganger.Image.ValueObjects;
 using FluentAssertions;
 using FluentAssertions.Execution;

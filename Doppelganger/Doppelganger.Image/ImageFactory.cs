@@ -1,7 +1,4 @@
 ﻿using Doppelganger.Image.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Doppelganger.Image
 {

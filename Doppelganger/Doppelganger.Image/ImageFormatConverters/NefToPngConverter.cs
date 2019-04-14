@@ -59,6 +59,22 @@ namespace Doppelganger.Image.ImageFormatConverters
             return stream;
         }
 
+        public override Stream Convert()
+        {
+            CheckFileExists(_InputFileFullName);
+
+            Stream stream = new MemoryStream();
+
+            WriteableBitmap originalImage = GetOriginalImageBitmapFrame(_InputFileFullName);
+            BitmapFrame bitmapSource = GetResizedImage(originalImage, (int)originalImage.Width, (int)originalImage.Height);
+            PngBitmapEncoder pngEncoder = SetupPNGEncoder(bitmapSource);
+
+            pngEncoder.Save(stream);
+            stream.Flush();
+
+            return stream;
+        }
+
         private static PngBitmapEncoder SetupPNGEncoder(BitmapFrame bitmapSource)
         {
             var pngEncoder = new PngBitmapEncoder();

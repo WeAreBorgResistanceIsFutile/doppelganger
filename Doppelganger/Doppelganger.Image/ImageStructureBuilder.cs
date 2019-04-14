@@ -1,9 +1,9 @@
-﻿using Doppelganger.Image.ValueObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
+
+using Doppelganger.Image.ValueObjects;
 
 namespace Doppelganger.Image
 {

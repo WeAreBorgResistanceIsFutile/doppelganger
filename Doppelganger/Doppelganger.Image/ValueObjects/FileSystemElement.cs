@@ -25,7 +25,6 @@ namespace Doppelganger.Image.ValueObjects
 
         public string GetPath()
         {
-            StringBuilder sb = new StringBuilder();
             return GetPath("");
         }
 

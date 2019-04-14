@@ -32,6 +32,7 @@ namespace Doppelganger.Image.ImageFormatConverters
 
         public abstract Stream Convert(Size convertedImageSize);
         public abstract Stream Convert(int dimensionMaxLength);
+        public abstract Stream Convert();
     }
 }
 
