@@ -60,9 +60,58 @@ namespace Doppelganger.Image.Test
                 structure.ImagesOfTypeCount<NEF>().Should().Be(3);
                 structure.ImagesOfTypeCount<PNG>().Should().Be(4);
 
-                structure.GetImageLibrary("Png7").Should().NotBeNull();
-                structure.GetImageLibrary("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
-                structure.GetImageLibrary("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
+                structure.GetImageLibraryByPath("Png7").Should().NotBeNull();
+                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
+                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
+            }
+        }
+
+        [TestMethod]
+        public void UpdateStructure_Should_Fill_Missing_Directory_Succeed()
+        {
+            var structure = imageStructureBuilder.BuildStructure();
+
+            var imageLibrary = structure.GetImageLibraryByPath("Png7");
+            structure.Remove(imageLibrary);
+
+            imageStructureBuilder.UpdateStructure(structure);
+
+            using (new AssertionScope())
+            {
+                structure.Should().NotBeNull();
+                structure.Should().BeOfType<RootImageLibrary>();
+                structure.ImageLibraryCount.Should().Be(7);
+                structure.ImagesOfTypeCount<NEF>().Should().Be(3);
+                structure.ImagesOfTypeCount<PNG>().Should().Be(4);
+
+                structure.GetImageLibraryByPath("Png7").Should().NotBeNull();
+                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
+                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
+            }
+        }
+
+        [TestMethod]
+        public void UpdateStructure_Should_Fill_Missing_PNG_Succeed()
+        {
+            var structure = imageStructureBuilder.BuildStructure();
+
+
+            var image = structure.GetImageByFullName(Path.Combine(structure.GetPath(), "NIK_9586.png"));
+            structure.Remove(image);
+            
+            imageStructureBuilder.UpdateStructure(structure);
+
+            using (new AssertionScope())
+            {
+                structure.Should().NotBeNull();
+                structure.Should().BeOfType<RootImageLibrary>();
+                structure.ImageLibraryCount.Should().Be(7);
+                structure.ImagesOfTypeCount<NEF>().Should().Be(3);
+                structure.ImagesOfTypeCount<PNG>().Should().Be(4);
+
+                structure.GetImageLibraryByPath("Png7").Should().NotBeNull();
+                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
+                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
             }
         }
     }

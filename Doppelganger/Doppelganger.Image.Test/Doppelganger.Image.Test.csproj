@@ -112,6 +112,7 @@
     <Compile Include="StoreTests\ImageStoreTests.cs" />
     <Compile Include="ImageFactoryTests.cs" />
     <Compile Include="PHashCalculatorTests.cs" />
+    <Compile Include="FileHashCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

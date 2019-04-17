@@ -12,7 +12,7 @@ namespace Doppelganger.Image.ValueObjects
         public byte[] PHash { get; private set; }
         public Guid UniqueId => _uniqueId;
 
-        public ImageBase(string fileName, int hash, int byteCount, byte[] pHash) : base(Path.GetFileNameWithoutExtension(fileName))
+        public ImageBase(string fileName, int hash, int byteCount, byte[] pHash) : base(Path.GetFileName(fileName))
         {
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentNullException(nameof(fileName), "Should not be empthy or null");

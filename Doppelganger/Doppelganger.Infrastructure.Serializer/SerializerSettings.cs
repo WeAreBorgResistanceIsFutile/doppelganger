@@ -21,8 +21,7 @@ namespace Doppelganger.Infrastructure.Serializer
 
     public class MyContractResolver : Newtonsoft.Json.Serialization.DefaultContractResolver
     {
-
-        Type includeAttributeType = typeof(Doppelganger.Image.Api.Attributes.Serializable);
+        readonly Type includeAttributeType = typeof(Doppelganger.Image.Api.Attributes.Serializable);
 
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {

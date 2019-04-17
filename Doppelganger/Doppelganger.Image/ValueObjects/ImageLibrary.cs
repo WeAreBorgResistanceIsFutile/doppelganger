@@ -70,14 +70,17 @@ namespace Doppelganger.Image.ValueObjects
         public void Remove(FileSystemElement element)
         {
             ElementNullCheck(element);
-            dynamic e = element;
-            Remove(e);
-            element.SetParent(null);
+            if (element.GetParent() is ImageLibrary imageLibrary)
+            {
+                dynamic e = element;
+                imageLibrary.Remove(e);
+                element.SetParent(null);
+            }
         }
 
-        public ImageLibrary GetImageLibrary(string name)
+        public ImageLibrary GetImageLibraryByPath(string path)
         {
-            return _libraryStore.GetImageLibrary(name);
+            return _libraryStore.GetImageLibrary(path);
         }
 
         public int ImagesOfTypeCount<T>() where T : ImageBase
@@ -88,6 +91,18 @@ namespace Doppelganger.Image.ValueObjects
         public ImageLibrary GetImageLibraryAt(int index)
         {
             return _libraryStore[index];
+        }
+
+        public ImageBase GetImageByFullName(string fullName)
+        {
+            var image = _imageStore.GetImageByFullName(fullName);
+
+            for (int i = 0; i < _libraryStore.Count && image is null; i++)
+            {
+                image = _libraryStore[i].GetImageByFullName(fullName);
+            }
+
+            return image;
         }
 
         private static void ElementNullCheck(FileSystemElement element)

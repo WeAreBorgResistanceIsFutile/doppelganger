@@ -8,7 +8,7 @@ namespace Doppelganger.Image
 {
     public class FileDataExtractor : IFileDataExtractor
     {
-        private const int BYTE_COUNT_TO_GENERATE_HASH_FROM = 8 * 1024 * 1024;
+        
         readonly ImageFactory _ImageFactory;
         readonly PHashCalculator _pHashCalculator;
 
@@ -35,31 +35,10 @@ namespace Doppelganger.Image
             using (var stream = file.Open(FileMode.Open))
             {
                 byte[] pHash = _pHashCalculator.CalculatePHash(stream);
-                int hash = GetFileHash(stream);
+                int hash = FileHashCalculator.GetFileHash(stream);
                 return _ImageFactory.Create<T>(file.Name, hash, (int)stream.Length, pHash);
             }            
-        }
-
-        private static int GetFileHash(Stream stream)
-        {
-            unchecked
-            {
-                const int HashingBase = (int)2166136261;
-                const int HashingMultiplier = 16777619;
-
-                int hash = HashingBase;
-                stream.Position = 0;
-
-                var readByte = stream.ReadByte();
-                var bytesRead = 1;
-                while (readByte >= 0 && bytesRead <= BYTE_COUNT_TO_GENERATE_HASH_FROM)
-                {
-                    hash = (hash * HashingMultiplier) ^ ((byte)readByte).GetHashCode();
-                    bytesRead++;
-                }
-                return hash;
-            }
-        }
+        }       
     }
 
     public interface IFileDataExtractor

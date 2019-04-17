@@ -39,13 +39,13 @@ namespace Doppelganger.Image.Test
         [TestMethod]
         public void GetFileData_Should_Succeed()
         {
-            string fileName = "NIK_4062";
-            var fd = GetFileData(Path.Combine(PATH, fileName + ".NEF"));
+            string fileName = "NIK_4062.NEF";
+            var fd = GetFileData(Path.Combine(PATH, fileName ));
 
             using (new AssertionScope())
             {
                 fd.Name.Should().Be(fileName);
-                fd.Hash.Should().Be(-1331913275);
+                fd.Hash.Should().Be(766030301);
                 fd.ByteCount.Should().Be(30906305);
             }
         }
@@ -59,11 +59,11 @@ namespace Doppelganger.Image.Test
             {
                 for (int i = 0; i < howManyTimes; i++)
                 {
-                    string fileName = "NIK_9588";
-                    ValueObjects.ImageBase fd = GetFileData(Path.Combine(PATH, fileName + ".png"));
+                    string fileName = "NIK_9588.png";
+                    ValueObjects.ImageBase fd = GetFileData(Path.Combine(PATH, fileName ));
 
                     fd.Name.Should().Be(fileName);
-                    fd.Hash.Should().Be(815570373);
+                    fd.Hash.Should().Be(-298732681);
                     fd.ByteCount.Should().Be(31459);
                 }
             }

@@ -42,16 +42,53 @@ namespace Doppelganger.Image.Test
         }
 
         [TestMethod]
-        public void Delete_Should_Work()
+        public void Delete_Image_Should_Work()
+        {
+            DeleteImage(@"root\someImage2");
+        }
+
+        [TestMethod]
+        public void Delete_Image_Should_Work2()
+        {
+            DeleteImage(@"root\someLibrary2\someImage");
+        }
+
+        private void DeleteImage(string fullName)
         {
             var root = CreateObjectTree() as ImageLibrary;
-            var someLibrary = root.GetImageLibraryAt(1) as ImageLibrary;
-
-            root.Remove(someLibrary);
+            var image = root.GetImageByFullName(fullName);
+            (image.GetParent() as ImageLibrary).Remove(image);
 
             using (new AssertionScope())
             {
-                root.ImageLibraryCount.Should().Be(1);
+                image.GetParent().Should().BeNull();
+                image.GetPath().Should().Be(image.Name);
+            }
+        }
+
+        [TestMethod]
+        public void Delete_Library_Should_Work()
+        {
+            DeleteLibrary(@"root\someLibrary");
+        }
+
+        [TestMethod]
+        public void Delete_Library_Should_Work2()
+        {
+            DeleteLibrary(@"root\someLibrary2\someLibrary2");
+        }
+
+        private void DeleteLibrary(string path)
+        {
+            var root = CreateObjectTree() as ImageLibrary;
+
+            var someLibrary = root.GetImageLibraryByPath(path);
+
+            (someLibrary.GetParent() as ImageLibrary).Remove(someLibrary);
+
+            using (new AssertionScope())
+            {
+                someLibrary.GetParent().Should().BeNull();
                 someLibrary.GetPath().Should().Be(someLibrary.Name);
             }
         }
@@ -66,7 +103,36 @@ namespace Doppelganger.Image.Test
                 root.GetPath().Should().Be("root");
                 root.GetImageLibraryAt(0).GetPath().Should().Be(@"root\someLibrary");
                 root.GetImageLibraryAt(1).GetPath().Should().Be(@"root\someLibrary2");
-                (root.GetImageLibraryAt(1) as ImageLibrary).GetImageLibraryAt(0).GetPath().Should().Be(@"root\someLibrary2\someImage");
+                (root.GetImageLibraryAt(1) as ImageLibrary)[0].GetPath().Should().Be(@"root\someLibrary2\someImage");
+            }
+        }
+
+        [TestMethod]
+        public void GetImageByFullName_Should_Work()
+        {
+            var root = CreateObjectTree() as ImageLibrary;
+
+            var image = root.GetImageByFullName(@"root\someLibrary2\someImage");
+
+
+            using (new AssertionScope())
+            {
+                image.Should().NotBeNull();
+                image.Name.Should().Be("someImage");
+            }
+        }
+
+        [TestMethod]
+        public void GetImageLibraryByPath_Should_Work()
+        {
+            var root = CreateObjectTree() as ImageLibrary;
+
+            var imageLibrary = root.GetImageLibraryByPath(@"root\someLibrary2\someLibrary2");
+
+            using (new AssertionScope())
+            {
+                imageLibrary.Should().NotBeNull();
+                imageLibrary.Name.Should().Be("someLibrary2");
             }
         }
 
@@ -75,12 +141,18 @@ namespace Doppelganger.Image.Test
             var root = new RootImageLibrary("root");
             var someLibrary = new ImageLibrary("someLibrary");
             var someLibrary2 = new ImageLibrary("someLibrary2");
-            var someImage = new ImageLibrary("someImage");
+            var someLibrary3 = new ImageLibrary("someLibrary2");
+            var someImage = new NEF("someImage", 0, 0, new byte[0]);
+            var someImage2 = new NEF("someImage2", 0, 0, new byte[0]);
 
             root.Add(someLibrary);
+            root.Add(someImage2);
             root.Add(someLibrary2);
             someLibrary2.Add(someImage);
+            someLibrary2.Add(someLibrary3);
             return root;
         }
+
+
     }
 }

@@ -38,10 +38,10 @@ namespace Doppelganger.Infrastructure.Serializer.Tests
                 structure.ImagesOfTypeCount<NEF>().Should().Be(0);
                 structure.ImagesOfTypeCount<PNG>().Should().Be(4);
 
-                structure.GetImageLibrary("Png7").Should().NotBeNull();
-                structure.GetImageLibrary("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
-                structure.GetImageLibrary("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
+                structure.GetImageLibraryByPath("Png7").Should().NotBeNull();
+                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
+                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
             }
-        }
+        }        
     }
 }

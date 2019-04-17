@@ -12,9 +12,14 @@
             Name = name;
         }
 
+        public FileSystemElement GetParent()
+        {
+            return _parent;
+        }
+
         protected internal virtual void SetParent(FileSystemElement parent) => _parent = parent;
 
-        public string GetPath()
+        protected internal string GetPath()
         {
             return GetPath("");
         }

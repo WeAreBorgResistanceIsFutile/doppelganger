@@ -13,8 +13,8 @@ namespace Doppelganger.Image.Stores
 
         public int Count { get { return _library.Count; } }
 
-        public ImageLibrary this[int index] => (index >=0 && index < Count) ? _library[index] : null;
-            
+        public ImageLibrary this[int index] => (index >= 0 && index < Count) ? _library[index] : null;
+
         public void Add(ImageLibrary library)
         {
             if (library is null)
@@ -32,9 +32,19 @@ namespace Doppelganger.Image.Stores
             _library.Remove(imageLibrary);
         }
 
-        internal ImageLibrary GetImageLibrary(string name)
+        internal ImageLibrary GetImageLibrary(string path)
         {
-            return _library.FirstOrDefault(p => p.Name.Equals(name));
+            var retVar = _library.FirstOrDefault(p => p.GetPath().Equals(path));
+            if (retVar is null)
+            {
+                for (int i = 0; i < _library.Count; i++)
+                {
+                    retVar = _library[i].GetImageLibraryByPath(path);
+                    if (!(retVar is null))
+                        break;
+                }
+            }
+            return retVar;
         }
     }
 }
