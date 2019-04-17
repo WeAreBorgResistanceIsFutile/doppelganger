@@ -46,37 +46,25 @@ namespace Doppelganger.Image
         {
             var di = new DirectoryInfo(imageLibrary.GetPath());
 
-            var directories = GetDirectories(di);
-            foreach (var directory in directories)
-            {
-                if (imageLibrary.GetImageLibraryByPath(directory.Name) is null)
-                {
-                    imageLibrary.Add(directory);
-                }
-            }
-
-            var nefs = GetNEFs(di, imageLibrary);
-            foreach (var nef in nefs)
-            {
-                imageLibrary.Add(nef);
-            }
-
-            var pngs = GetPNGs(di, imageLibrary);
-            foreach (var png in pngs)
-            {
-                imageLibrary.Add(png);
-            }
-
+            var directories = GetDirectoriesThatAreNotInTheImageLibrary(di, imageLibrary);
+            imageLibrary.Add(directories);
+            
+            var nefs = GetNEFsThatAreNotInTheImageLibrary(di, imageLibrary);
+            imageLibrary.Add(nefs);
+            
+            var pngs = GetPNGsThatAreNotInTheImageLibrary(di, imageLibrary);
+            imageLibrary.Add(pngs);
+            
             for (int i = 0; i < imageLibrary.ImageLibraryCount; i++)
             {
                 UpdateImageLibrary(imageLibrary.GetImageLibraryAt(i));
             }
         }
 
-        private List<FileSystemElement> GetDirectories(DirectoryInfo di)
+        private List<FileSystemElement> GetDirectoriesThatAreNotInTheImageLibrary(DirectoryInfo di, ImageLibrary imageLibrary)
         {
             var retVar = new List<FileSystemElement>();
-            retVar = di.GetDirectories().Select(p =>
+            retVar = di.GetDirectories().Where(p => imageLibrary.GetImageLibraryByPath(p.FullName) is null).Select(p =>
             {
                 ImageLibrary il = new ImageLibrary(p.FullName);
                 return il;
@@ -85,18 +73,18 @@ namespace Doppelganger.Image
             return retVar;
         }
 
-        private List<FileSystemElement> GetPNGs(DirectoryInfo di, ImageLibrary imageLibrary)
+        private List<FileSystemElement> GetPNGsThatAreNotInTheImageLibrary(DirectoryInfo di, ImageLibrary imageLibrary)
         {
-            return GetImageObjectIfNotInLibrary<PNG>(di, ".png", imageLibrary);
+            return GetImageObjectsThatAreNotInTheImageLibrary<PNG>(di, ".png", imageLibrary);
         }
 
-        private List<FileSystemElement> GetNEFs(DirectoryInfo di, ImageLibrary imageLibrary)
+        private List<FileSystemElement> GetNEFsThatAreNotInTheImageLibrary(DirectoryInfo di, ImageLibrary imageLibrary)
         {
-            return GetImageObjectIfNotInLibrary<NEF>(di, ".nef", imageLibrary);
+            return GetImageObjectsThatAreNotInTheImageLibrary<NEF>(di, ".nef", imageLibrary);
         }
 
 
-        private List<FileSystemElement> GetImageObjectIfNotInLibrary<T>(DirectoryInfo di, string extention, ImageLibrary imageLibrary) where T : ImageBase
+        private List<FileSystemElement> GetImageObjectsThatAreNotInTheImageLibrary<T>(DirectoryInfo di, string extention, ImageLibrary imageLibrary) where T : ImageBase
         {
             var retVar = new ConcurrentBag<FileSystemElement>();
             var alma = di.GetFiles().Where(p => p.Extension.ToLowerInvariant().Equals(extention));

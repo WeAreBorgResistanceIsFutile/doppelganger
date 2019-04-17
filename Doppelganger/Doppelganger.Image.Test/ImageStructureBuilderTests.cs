@@ -60,9 +60,11 @@ namespace Doppelganger.Image.Test
                 structure.ImagesOfTypeCount<NEF>().Should().Be(3);
                 structure.ImagesOfTypeCount<PNG>().Should().Be(4);
 
-                structure.GetImageLibraryByPath("Png7").Should().NotBeNull();
-                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
-                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
+                string png7Path = Path.Combine(structure.GetPath(), "Png7");
+
+                structure.GetImageLibraryByPath(png7Path).Should().NotBeNull();
+                structure.GetImageLibraryByPath(png7Path).ImagesOfTypeCount<NEF>().Should().Be(0);
+                structure.GetImageLibraryByPath(png7Path).ImagesOfTypeCount<PNG>().Should().Be(2);
             }
         }
 
@@ -71,7 +73,8 @@ namespace Doppelganger.Image.Test
         {
             var structure = imageStructureBuilder.BuildStructure();
 
-            var imageLibrary = structure.GetImageLibraryByPath("Png7");
+            string png7Path = Path.Combine(structure.GetPath(), "Png7");
+            var imageLibrary = structure.GetImageLibraryByPath(png7Path);
             structure.Remove(imageLibrary);
 
             imageStructureBuilder.UpdateStructure(structure);
@@ -82,11 +85,11 @@ namespace Doppelganger.Image.Test
                 structure.Should().BeOfType<RootImageLibrary>();
                 structure.ImageLibraryCount.Should().Be(7);
                 structure.ImagesOfTypeCount<NEF>().Should().Be(3);
-                structure.ImagesOfTypeCount<PNG>().Should().Be(4);
+                structure.ImagesOfTypeCount<PNG>().Should().Be(4);                
 
-                structure.GetImageLibraryByPath("Png7").Should().NotBeNull();
-                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
-                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
+                structure.GetImageLibraryByPath(png7Path).Should().NotBeNull();
+                structure.GetImageLibraryByPath(png7Path).ImagesOfTypeCount<NEF>().Should().Be(0);
+                structure.GetImageLibraryByPath(png7Path).ImagesOfTypeCount<PNG>().Should().Be(2);
             }
         }
 
@@ -109,9 +112,12 @@ namespace Doppelganger.Image.Test
                 structure.ImagesOfTypeCount<NEF>().Should().Be(3);
                 structure.ImagesOfTypeCount<PNG>().Should().Be(4);
 
-                structure.GetImageLibraryByPath("Png7").Should().NotBeNull();
-                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
-                structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
+
+                string png7Path = Path.Combine(structure.GetPath(), "Png7");
+
+                structure.GetImageLibraryByPath(png7Path).Should().NotBeNull();
+                structure.GetImageLibraryByPath(png7Path).ImagesOfTypeCount<NEF>().Should().Be(0);
+                structure.GetImageLibraryByPath(png7Path).ImagesOfTypeCount<PNG>().Should().Be(2);
             }
         }
     }
