@@ -48,16 +48,38 @@ namespace Doppelganger.Image
 
             var directories = GetDirectoriesThatAreNotInTheImageLibrary(di, imageLibrary);
             imageLibrary.Add(directories);
-            
+            RemoveNonExistingDirectories(imageLibrary, di);
+
             var nefs = GetNEFsThatAreNotInTheImageLibrary(di, imageLibrary);
             imageLibrary.Add(nefs);
-            
+
             var pngs = GetPNGsThatAreNotInTheImageLibrary(di, imageLibrary);
             imageLibrary.Add(pngs);
-            
+            RemoveNonExistingImages(imageLibrary, di);
+
             for (int i = 0; i < imageLibrary.ImageLibraryCount; i++)
             {
                 UpdateImageLibrary(imageLibrary.GetImageLibraryAt(i));
+            }
+        }
+
+        private static void RemoveNonExistingDirectories(ImageLibrary imageLibrary, DirectoryInfo di)
+        {
+            string[] childDirectoryPaths = di.GetDirectories().Select(p => p.FullName).ToArray();
+            for (int i = 0; i < imageLibrary.ImageLibraryCount; i++)
+            {
+                if (!childDirectoryPaths.Any(p => p.Equals(imageLibrary.GetImageLibraryAt(i).GetPath())))
+                    imageLibrary.Remove(imageLibrary.GetImageLibraryAt(i));
+            }
+        }
+
+        private static void RemoveNonExistingImages(ImageLibrary imageLibrary, DirectoryInfo di)
+        {
+            string[] fileNames = di.GetFiles().Select(p => p.FullName).ToArray();
+            for (int i = 0; i < imageLibrary.ImageCount; i++)
+            {
+                if (!fileNames.Any(p => p.Equals(imageLibrary[i].GetPath())))
+                    imageLibrary.Remove(imageLibrary[i]);
             }
         }
 
@@ -82,7 +104,6 @@ namespace Doppelganger.Image
         {
             return GetImageObjectsThatAreNotInTheImageLibrary<NEF>(di, ".nef", imageLibrary);
         }
-
 
         private List<FileSystemElement> GetImageObjectsThatAreNotInTheImageLibrary<T>(DirectoryInfo di, string extention, ImageLibrary imageLibrary) where T : ImageBase
         {
