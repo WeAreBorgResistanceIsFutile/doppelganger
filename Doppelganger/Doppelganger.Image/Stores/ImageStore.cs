@@ -8,8 +8,8 @@ namespace Doppelganger.Image.Stores
 {
     public class ImageStore
     {
-        readonly Dictionary<int, List<Guid>> _hashIndex;
-        readonly Dictionary<string, Guid> _nameIndex;
+        private readonly Dictionary<int, List<Guid>> _hashIndex;
+        private readonly Dictionary<string, Guid> _nameIndex;
 
         [Doppelganger.Image.Api.Attributes.Serializable(nameof(_store))]
         protected readonly Dictionary<Guid, ImageBase> _store;
@@ -64,6 +64,7 @@ namespace Doppelganger.Image.Stores
         {
             return _store.Values.OfType<T>();
         }
+
         private void RemoveFromHashIndex(ImageBase element)
         {
             if (_hashIndex.ContainsKey(element.Hash))

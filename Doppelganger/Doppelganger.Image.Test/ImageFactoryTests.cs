@@ -1,6 +1,5 @@
-﻿using System;
-using System.IO;
-using Doppelganger.Image.ValueObjects;
+﻿using Doppelganger.Image.ValueObjects;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Doppelganger.Image.Test

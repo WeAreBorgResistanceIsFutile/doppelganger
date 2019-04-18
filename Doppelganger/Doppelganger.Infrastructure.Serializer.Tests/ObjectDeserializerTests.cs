@@ -12,7 +12,8 @@ namespace Doppelganger.Infrastructure.Serializer.Tests
     [TestClass]
     public class ObjectDeserializer
     {
-        const string PATH = @".\Resources";
+        private const string PATH = @".\Resources";
+
         [TestMethod]
         public void DeserializeObject_Should_Succeed()
         {
@@ -42,6 +43,6 @@ namespace Doppelganger.Infrastructure.Serializer.Tests
                 structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<NEF>().Should().Be(0);
                 structure.GetImageLibraryByPath("Png7").ImagesOfTypeCount<PNG>().Should().Be(2);
             }
-        }        
+        }
     }
 }

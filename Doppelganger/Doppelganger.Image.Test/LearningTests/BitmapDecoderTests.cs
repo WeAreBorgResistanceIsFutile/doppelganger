@@ -1,19 +1,21 @@
-﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
+using FluentAssertions;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace Doppelganger.Image.Test
 {
     [TestClass]
     public class BitmapDecoderTests
     {
-        const string PATH = @".\Resources";
-        const string NEF_FILENAME = "NIK_4062.NEF";
+        private const string PATH = @".\Resources";
+        private const string NEF_FILENAME = "NIK_4062.NEF";
 
         //For this to work download and install Nikon NEF codec. Source for codec: https://downloadcenter.nikonimglib.com/en/download/sw/97.html
         [TestMethod]
@@ -21,8 +23,8 @@ namespace Doppelganger.Image.Test
         public void Convert_NEF_to_PNG()
         {
             string currentFile = Path.Combine(PATH, NEF_FILENAME);
-            string outputFileName= Path.Combine(PATH, NEF_FILENAME + ".png");
-            
+            string outputFileName = Path.Combine(PATH, NEF_FILENAME + ".png");
+
             CreatePng(currentFile, outputFileName);
             VerifyIfPngHasCorrectSize(outputFileName);
             DeleteCreatedPng(outputFileName);
@@ -96,5 +98,3 @@ namespace Doppelganger.Image.Test
         }
     }
 }
-
-

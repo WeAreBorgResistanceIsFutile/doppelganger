@@ -1,7 +1,5 @@
-﻿using System.Drawing;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Media.Imaging;
-using Doppelganger.Image.ImageFormatConverters;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -13,7 +11,7 @@ namespace Doppelganger.Image.Test.LearningTests
     [TestClass]
     public class PHashTests
     {
-        const string FILE = @".\resources\NIK_9586.png";
+        private const string FILE = @".\resources\NIK_9586.png";
 
         [TestMethod]
         public void CalculatePHash_FullSize()
@@ -22,6 +20,5 @@ namespace Doppelganger.Image.Test.LearningTests
             BitmapDecoder bmpDec = BitmapDecoder.Create(stream, BitmapCreateOptions.DelayCreation, BitmapCacheOption.OnDemand);
             ImagePhash.ComputeDigest(bmpDec.Frames[0].ToLuminanceImage());
         }
-
     }
 }

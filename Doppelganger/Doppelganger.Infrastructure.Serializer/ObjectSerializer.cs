@@ -10,7 +10,7 @@ namespace Doppelganger.Infrastructure.Serializer
     {
         public string SerializeObject(T hydratedObject)
         {
-           return DeHydrateRootImageLibrary(hydratedObject);
+            return DeHydrateRootImageLibrary(hydratedObject);
         }
 
         private static string DeHydrateRootImageLibrary(T hydratedObject)

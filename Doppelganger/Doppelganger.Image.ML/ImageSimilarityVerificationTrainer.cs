@@ -1,16 +1,15 @@
-﻿using Microsoft.Data.DataView;
+﻿using System;
+using System.Collections.Generic;
+
+using Microsoft.Data.DataView;
 using Microsoft.ML;
 using Microsoft.ML.Data;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static Microsoft.ML.TrainCatalogBase;
 
 namespace Doppelganger.Image.ML
 {
     public class ImageSimilarityVerificationTrainer
     {
-        readonly IEnumerable<MyData> _Data;
+        private readonly IEnumerable<MyData> _Data;
 
         public ImageSimilarityVerificationTrainer(IEnumerable<MyData> data)
         {
@@ -24,11 +23,13 @@ namespace Doppelganger.Image.ML
 
             [ColumnName("Input1")]
             public byte[] Image1 { get; set; }
+
             [ColumnName("Input2")]
             public byte[] Image2 { get; set; }
 
             [ColumnName("Label")]
             public float AreIdentical;
+
             public MyData(byte[] image1, byte[] image2)
             {
                 if (image1 is null || image1.Length != BYTE_ARRAY_SIZE)
@@ -59,7 +60,7 @@ namespace Doppelganger.Image.ML
             var pipeline = mlContext.Transforms.Concatenate("Features", "Input1", "Input2")
                 .Append(mlContext.MulticlassClassification.Trainers.StochasticDualCoordinateAscent());
 
-            pipeline.Fit(trainingDataView);           
+            pipeline.Fit(trainingDataView);
         }
     }
 }

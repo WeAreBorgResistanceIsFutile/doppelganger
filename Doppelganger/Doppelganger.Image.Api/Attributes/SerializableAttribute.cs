@@ -6,6 +6,7 @@ namespace Doppelganger.Image.Api.Attributes
     public class Serializable : Attribute
     {
         public string Name { get; private set; }
+
         public Serializable(string alias)
         {
             Name = alias;

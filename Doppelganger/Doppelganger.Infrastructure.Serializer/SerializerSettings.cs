@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -21,7 +22,7 @@ namespace Doppelganger.Infrastructure.Serializer
 
     public class MyContractResolver : Newtonsoft.Json.Serialization.DefaultContractResolver
     {
-        readonly Type includeAttributeType = typeof(Doppelganger.Image.Api.Attributes.Serializable);
+        private readonly Type includeAttributeType = typeof(Doppelganger.Image.Api.Attributes.Serializable);
 
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {
@@ -32,8 +33,6 @@ namespace Doppelganger.Infrastructure.Serializer
 
             return publicProperties.Union(nonPublicProperties).Union(variables).ToList();
         }
-
-
 
         protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {

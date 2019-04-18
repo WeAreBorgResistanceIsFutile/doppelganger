@@ -1,7 +1,10 @@
 ﻿using System;
+
 using Doppelganger.Image.Stores;
 using Doppelganger.Image.ValueObjects;
+
 using FluentAssertions;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Doppelganger.Image.Test.StoreTests
@@ -27,7 +30,7 @@ namespace Doppelganger.Image.Test.StoreTests
         public void Add_Should_Fail_NULL_Not_Allowed()
         {
             var imageLibraryStore = new ImageLibraryStore();
-            Action action = ()=> imageLibraryStore.Add((ImageLibrary)null);
+            Action action = () => imageLibraryStore.Add((ImageLibrary)null);
             action.Should().Throw<ArgumentNullException>();
         }
 

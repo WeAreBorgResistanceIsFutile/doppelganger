@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Windows.Media;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Doppelganger.Image.ImageFormatConverters
@@ -12,7 +10,6 @@ namespace Doppelganger.Image.ImageFormatConverters
     {
         public NefToPngConverter(string inputFileFullName) : base(inputFileFullName, "png")
         {
-
         }
 
         public override Stream Convert(Size convertedImageSize)
@@ -20,7 +17,6 @@ namespace Doppelganger.Image.ImageFormatConverters
             CheckFileExists(_InputFileFullName);
 
             Stream stream = new MemoryStream();
-
 
             WriteableBitmap originalImage = GetOriginalImageBitmapFrame(_InputFileFullName);
 
@@ -41,7 +37,6 @@ namespace Doppelganger.Image.ImageFormatConverters
             CheckFileExists(_InputFileFullName);
 
             Stream stream = new MemoryStream();
-
 
             WriteableBitmap originalImage = GetOriginalImageBitmapFrame(_InputFileFullName);
 
@@ -101,7 +96,6 @@ namespace Doppelganger.Image.ImageFormatConverters
 
         private static BitmapFrame GetResizedImage(ImageSource source, int width, int height)
         {
-            
             var rect = new Rect(0, 0, width, height);
 
             var group = new DrawingGroup();
@@ -117,7 +111,5 @@ namespace Doppelganger.Image.ImageFormatConverters
 
             return BitmapFrame.Create(resizedImage);
         }
-
-
     }
 }

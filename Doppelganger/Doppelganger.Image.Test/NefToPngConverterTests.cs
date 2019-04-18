@@ -1,7 +1,10 @@
 ﻿using System;
 using System.IO;
+
 using Doppelganger.Image.ImageFormatConverters;
+
 using FluentAssertions;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Doppelganger.Image.Test
@@ -9,8 +12,8 @@ namespace Doppelganger.Image.Test
     [TestClass]
     public class NefToPngConverterTests
     {
-        const string PATH = @".\Resources";
-        const string NEF_FILENAME = "NIK_4062.NEF";
+        private const string PATH = @".\Resources";
+        private const string NEF_FILENAME = "NIK_4062.NEF";
 
         [TestMethod]
         public void Create_Should_Work()
@@ -29,7 +32,7 @@ namespace Doppelganger.Image.Test
         public void Convert_Should_Fail_InputFile_Not_Exists()
         {
             string currentFile = Path.Combine(PATH, NEF_FILENAME);
-            
+
             Action action = () => new NefToPngConverter("some input").Convert(new System.Windows.Size(10, 10));
             action.Should().Throw<FileNotFoundException>();
         }
@@ -42,7 +45,7 @@ namespace Doppelganger.Image.Test
             using (var stream = new NefToPngConverter(currentFile).Convert(new System.Windows.Size(160, 10)))
             {
                 stream.Should().NotBeNull();
-            }                
+            }
         }
 
         [TestMethod]
@@ -50,7 +53,7 @@ namespace Doppelganger.Image.Test
         {
             string currentFile = Path.Combine(PATH, NEF_FILENAME);
             int dimensionMaxLength = 160;
-            
+
             using (var stream = new NefToPngConverter(currentFile).Convert(dimensionMaxLength))
             {
                 stream.Should().NotBeNull();

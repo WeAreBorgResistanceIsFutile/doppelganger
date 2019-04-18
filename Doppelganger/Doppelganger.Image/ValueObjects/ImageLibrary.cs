@@ -110,19 +110,22 @@ namespace Doppelganger.Image.ValueObjects
             if (element is null)
                 throw new ArgumentNullException(nameof(element), "should not be null");
         }
+
         private void Add(ImageLibrary element)
         {
             _libraryStore.Add(element);
-
         }
+
         private void Add(ImageBase element)
         {
             _imageStore.Add(element);
         }
+
         private void Remove(ImageLibrary element)
         {
             _libraryStore.Remove(element);
         }
+
         private void Remove(ImageBase element)
         {
             _imageStore.Remove(element);
@@ -161,7 +164,6 @@ namespace Doppelganger.Image.ValueObjects
                 int hash = HashingBase;
 
                 hash = (hash * HashingMultiplier) ^ Name.GetHashCode();
-
 
                 return hash;
             }

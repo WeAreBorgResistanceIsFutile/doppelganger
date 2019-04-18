@@ -1,7 +1,10 @@
 ﻿using System;
+
 using Doppelganger.Image.Stores;
 using Doppelganger.Image.ValueObjects;
+
 using FluentAssertions;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Doppelganger.Image.Test.StoreTests
@@ -19,7 +22,7 @@ namespace Doppelganger.Image.Test.StoreTests
         public void Add_Should_Work()
         {
             var ImageStore = new ImageStore();
-            ImageStore.Add(new NEF("some name",0,0, pHash: new byte[0]));
+            ImageStore.Add(new NEF("some name", 0, 0, pHash: new byte[0]));
             ImageStore.Count.Should().Be(1);
         }
 
@@ -52,7 +55,7 @@ namespace Doppelganger.Image.Test.StoreTests
         public void Add_Multiple_Items_With_Same_Name_Should_Fail()
         {
             var ImageStore = new ImageStore();
-            Action action = ()=> ImageStore.Add(new ImageBase[] { new NEF("some name", 0, 0, pHash: new byte[0]), new PNG("some name", 0, 0, pHash: new byte[0]) });
+            Action action = () => ImageStore.Add(new ImageBase[] { new NEF("some name", 0, 0, pHash: new byte[0]), new PNG("some name", 0, 0, pHash: new byte[0]) });
             action.Should().Throw<ArgumentException>();
         }
 

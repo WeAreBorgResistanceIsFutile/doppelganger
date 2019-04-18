@@ -6,7 +6,7 @@ namespace Doppelganger.Image.ValueObjects
     public abstract class ImageBase : FileSystemElement
     {
         private readonly Guid _uniqueId;
-        
+
         public int Hash { get; private set; }
         public int ByteCount { get; private set; }
         public byte[] PHash { get; private set; }

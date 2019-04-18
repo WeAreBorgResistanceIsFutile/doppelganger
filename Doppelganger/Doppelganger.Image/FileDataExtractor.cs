@@ -8,9 +8,8 @@ namespace Doppelganger.Image
 {
     public class FileDataExtractor : IFileDataExtractor
     {
-        
-        readonly ImageFactory _ImageFactory;
-        readonly PHashCalculator _pHashCalculator;
+        private readonly ImageFactory _ImageFactory;
+        private readonly PHashCalculator _pHashCalculator;
 
         public FileDataExtractor(ImageFactory imageFactory, PHashCalculator pHashCalculator)
         {
@@ -37,8 +36,8 @@ namespace Doppelganger.Image
                 byte[] pHash = _pHashCalculator.CalculatePHash(stream);
                 int hash = FileHashCalculator.GetFileHash(stream);
                 return _ImageFactory.Create<T>(file.Name, hash, (int)stream.Length, pHash);
-            }            
-        }       
+            }
+        }
     }
 
     public interface IFileDataExtractor

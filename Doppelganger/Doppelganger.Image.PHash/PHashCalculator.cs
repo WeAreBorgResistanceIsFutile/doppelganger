@@ -1,6 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Media.Imaging;
+
 using Shipwreck.Phash;
 using Shipwreck.Phash.PresentationCore;
 

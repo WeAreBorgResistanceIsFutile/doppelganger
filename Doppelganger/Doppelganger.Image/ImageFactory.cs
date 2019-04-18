@@ -4,7 +4,7 @@ namespace Doppelganger.Image
 {
     public class ImageFactory
     {
-        public T Create<T>(string name, int hash, int byteCount, byte [] pHash) where T : ImageBase
+        public T Create<T>(string name, int hash, int byteCount, byte[] pHash) where T : ImageBase
         {
             if (typeof(T) == typeof(NEF))
             {
@@ -16,7 +16,6 @@ namespace Doppelganger.Image
             }
             else
                 return null;
-
         }
     }
 }

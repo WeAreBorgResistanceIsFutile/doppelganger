@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Doppelganger.Image.ValueObjects;
 
 namespace Doppelganger.Image
 {
     public class ImageStructureBuilder
     {
-        readonly string _sourcePath;
-        readonly IFileDataExtractor _FileDataExtractor;
+        private readonly string _sourcePath;
+        private readonly IFileDataExtractor _FileDataExtractor;
 
         public ImageStructureBuilder(string sourcePath, IFileDataExtractor fileDataExtractor)
         {

@@ -32,6 +32,5 @@
             path += $@"{Name}";
             return path;
         }
-
     }
 }

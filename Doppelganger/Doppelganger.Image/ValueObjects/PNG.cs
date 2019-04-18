@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Doppelganger.Image.ValueObjects
+﻿namespace Doppelganger.Image.ValueObjects
 {
     public class PNG : ImageBase
     {

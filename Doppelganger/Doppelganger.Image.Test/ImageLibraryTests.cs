@@ -1,7 +1,8 @@
-﻿using System;
-using Doppelganger.Image.ValueObjects;
+﻿using Doppelganger.Image.ValueObjects;
+
 using FluentAssertions;
 using FluentAssertions.Execution;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Doppelganger.Image.Test
@@ -114,7 +115,6 @@ namespace Doppelganger.Image.Test
 
             var image = root.GetImageByFullName(@"root\someLibrary2\someImage");
 
-
             using (new AssertionScope())
             {
                 image.Should().NotBeNull();
@@ -152,7 +152,5 @@ namespace Doppelganger.Image.Test
             someLibrary2.Add(someLibrary3);
             return root;
         }
-
-
     }
 }

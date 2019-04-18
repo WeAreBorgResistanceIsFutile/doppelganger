@@ -1,6 +1,9 @@
 ﻿using System;
+
 using Doppelganger.Image.ValueObjects;
+
 using FluentAssertions;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Doppelganger.Image.Test

@@ -8,16 +8,15 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 
 namespace Doppelganger.Image.Test
 {
     [TestClass]
     public class ImageStructureBuilder
     {
-        const string PATH = @".\Resources";
-        Image.ImageStructureBuilder imageStructureBuilder;
-        IFileDataExtractor _FileDataExtractor;
+        private const string PATH = @".\Resources";
+        private Image.ImageStructureBuilder imageStructureBuilder;
+        private IFileDataExtractor _FileDataExtractor;
 
         [TestInitialize]
         public void TestInit()
@@ -85,7 +84,7 @@ namespace Doppelganger.Image.Test
                 structure.Should().BeOfType<RootImageLibrary>();
                 structure.ImageLibraryCount.Should().Be(7);
                 structure.ImagesOfTypeCount<NEF>().Should().Be(3);
-                structure.ImagesOfTypeCount<PNG>().Should().Be(4);                
+                structure.ImagesOfTypeCount<PNG>().Should().Be(4);
 
                 structure.GetImageLibraryByPath(png7Path).Should().NotBeNull();
                 structure.GetImageLibraryByPath(png7Path).ImagesOfTypeCount<NEF>().Should().Be(0);
@@ -98,10 +97,9 @@ namespace Doppelganger.Image.Test
         {
             var structure = imageStructureBuilder.BuildStructure();
 
-
             var image = structure.GetImageByFullName(Path.Combine(structure.GetPath(), "NIK_9586.png"));
             structure.Remove(image);
-            
+
             imageStructureBuilder.UpdateStructure(structure);
 
             using (new AssertionScope())
@@ -111,7 +109,6 @@ namespace Doppelganger.Image.Test
                 structure.ImageLibraryCount.Should().Be(7);
                 structure.ImagesOfTypeCount<NEF>().Should().Be(3);
                 structure.ImagesOfTypeCount<PNG>().Should().Be(4);
-
 
                 string png7Path = Path.Combine(structure.GetPath(), "Png7");
 
@@ -149,7 +146,7 @@ namespace Doppelganger.Image.Test
 
                 structure.GetImageLibraryByPath(png6Path).ImageLibraryCount.Should().Be(0);
                 structure.GetImageLibraryByPath(png6Path).ImagesOfTypeCount<NEF>().Should().Be(0);
-                structure.GetImageLibraryByPath(png6Path).ImagesOfTypeCount<PNG>().Should().Be(4);                
+                structure.GetImageLibraryByPath(png6Path).ImagesOfTypeCount<PNG>().Should().Be(4);
             }
         }
     }

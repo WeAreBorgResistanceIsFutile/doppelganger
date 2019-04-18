@@ -11,10 +11,10 @@ namespace Doppelganger.Infrastructure.Serializer.Tests
     [TestClass]
     public class ObjectSerializer
     {
-        const string DEHYDRATEDOBJECT_SHOULD_START_WITH = "{\"$type\":\"Doppelganger.Image.ValueObjects.RootImageLibrary, Doppelganger.Image\",\"ImageLibraryCount\":7,\"ImageCount\":4,\"FileName\":\"Resources\"";
-        const string PATH = @".\Resources";
-        Image.ImageStructureBuilder imageStructureBuilder;
-        IFileDataExtractor _FileDataExtractor;
+        private const string DEHYDRATEDOBJECT_SHOULD_START_WITH = "{\"$type\":\"Doppelganger.Image.ValueObjects.RootImageLibrary, Doppelganger.Image\",\"ImageLibraryCount\":7,\"ImageCount\":4,\"FileName\":\"Resources\"";
+        private const string PATH = @".\Resources";
+        private Image.ImageStructureBuilder imageStructureBuilder;
+        private IFileDataExtractor _FileDataExtractor;
 
         [TestInitialize]
         public void TestInit()

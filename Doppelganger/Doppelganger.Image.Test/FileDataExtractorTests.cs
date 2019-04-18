@@ -1,19 +1,21 @@
-﻿using Doppelganger.Image;
+﻿using System;
+using System.IO;
+
 using Doppelganger.Image.PHash;
 using Doppelganger.Image.ValueObjects;
+
 using FluentAssertions;
 using FluentAssertions.Execution;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.IO;
 
 namespace Doppelganger.Image.Test
 {
     [TestClass]
     public class FileDataExtractorTests
     {
-        const string PATH = @".\Resources";
-        FileDataExtractor fde;
+        private const string PATH = @".\Resources";
+        private FileDataExtractor fde;
 
         [TestInitialize]
         public void InitTests()
@@ -28,7 +30,6 @@ namespace Doppelganger.Image.Test
             getFileData.Should().Throw<ArgumentNullException>();
         }
 
-
         [TestMethod]
         public void Create_Should_Fail_null_PHashCalculator()
         {
@@ -40,7 +41,7 @@ namespace Doppelganger.Image.Test
         public void GetFileData_Should_Succeed()
         {
             string fileName = "NIK_4062.NEF";
-            var fd = GetFileData(Path.Combine(PATH, fileName ));
+            var fd = GetFileData(Path.Combine(PATH, fileName));
 
             using (new AssertionScope())
             {
@@ -60,7 +61,7 @@ namespace Doppelganger.Image.Test
                 for (int i = 0; i < howManyTimes; i++)
                 {
                     string fileName = "NIK_9588.png";
-                    ValueObjects.ImageBase fd = GetFileData(Path.Combine(PATH, fileName ));
+                    ValueObjects.ImageBase fd = GetFileData(Path.Combine(PATH, fileName));
 
                     fd.Name.Should().Be(fileName);
                     fd.Hash.Should().Be(-298732681);
@@ -71,7 +72,7 @@ namespace Doppelganger.Image.Test
 
         private ValueObjects.ImageBase GetFileData(string fileName)
         {
-            ValueObjects.ImageBase fd = fde.GetFileData<NEF>(new FileInfo( fileName));
+            ValueObjects.ImageBase fd = fde.GetFileData<NEF>(new FileInfo(fileName));
             return fd;
         }
 
@@ -87,6 +88,6 @@ namespace Doppelganger.Image.Test
         {
             Action action = () => fde.GetFileData<NEF>(new FileInfo("Some file"));
             action.Should().Throw<FileNotFoundException>();
-        }       
+        }
     }
 }

@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace Doppelganger.Image.ValueObjects
+﻿namespace Doppelganger.Image.ValueObjects
 {
     public class RootImageLibrary : ImageLibrary
     {
         [Doppelganger.Image.Api.Attributes.Serializable("Path")]
         private readonly string _rootPath;
-               
 
         public RootImageLibrary(string name) : base(name)
         {
