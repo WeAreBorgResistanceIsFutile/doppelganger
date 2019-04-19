@@ -32,7 +32,7 @@ namespace Doppelganger.Infrastructure.Serializer.Tests
             string dehydratedObject = serializer.SerializeObject(structure);
 
             dehydratedObject.Should().StartWith(DEHYDRATEDOBJECT_SHOULD_START_WITH);
-            dehydratedObject.Should().HaveLength(18311);
+            dehydratedObject.Should().HaveLength(20433);
         }
     }
 }
