@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doppelganger.App", "Doppelg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doppelganger.Image.ML", "Doppelganger.Image.ML\Doppelganger.Image.ML.csproj", "{2CE03E3B-F269-417F-B259-1AC31A250204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doppelganger.Image.ML.Test", "Doppelganger.Image.ML.Test\Doppelganger.Image.ML.Test.csproj", "{C7E66BD6-A14F-4869-BBC8-B29777E17815}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doppelganger.Image.PHash", "Doppelganger.Image.PHash\Doppelganger.Image.PHash.csproj", "{EEC7DCEF-429E-4A4E-87CE-2DFA20170D12}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doppelganger.Infrastructure.Serializer", "Doppelganger.Infrastructure.Serializer\Doppelganger.Infrastructure.Serializer.csproj", "{691DC29B-9F9F-485D-B755-4B09611C6CF8}"
@@ -23,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{59E8A749
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doppelganger.Infrastructure.Serializer.Tests", "Doppelganger.Infrastructure.Serializer.Tests\Doppelganger.Infrastructure.Serializer.Tests.csproj", "{166599B4-7A8C-433C-AD24-BD9DBA668B75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doppelganger.Image.Api", "Doppelganger.Image.Api\Doppelganger.Image.Api.csproj", "{131F5212-14AC-4C50-A123-A5E5BD80E9BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doppelganger.Image.Api", "Doppelganger.Image.Api\Doppelganger.Image.Api.csproj", "{131F5212-14AC-4C50-A123-A5E5BD80E9BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +45,6 @@ Global
 		{2CE03E3B-F269-417F-B259-1AC31A250204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CE03E3B-F269-417F-B259-1AC31A250204}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CE03E3B-F269-417F-B259-1AC31A250204}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7E66BD6-A14F-4869-BBC8-B29777E17815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7E66BD6-A14F-4869-BBC8-B29777E17815}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7E66BD6-A14F-4869-BBC8-B29777E17815}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7E66BD6-A14F-4869-BBC8-B29777E17815}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EEC7DCEF-429E-4A4E-87CE-2DFA20170D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EEC7DCEF-429E-4A4E-87CE-2DFA20170D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEC7DCEF-429E-4A4E-87CE-2DFA20170D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,7 +71,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F2172468-8068-4EC5-B11D-BD942AF540C1} = {59E8A749-7083-4C36-9CFE-14FE39E99DFE}
-		{C7E66BD6-A14F-4869-BBC8-B29777E17815} = {59E8A749-7083-4C36-9CFE-14FE39E99DFE}
 		{166599B4-7A8C-433C-AD24-BD9DBA668B75} = {59E8A749-7083-4C36-9CFE-14FE39E99DFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
